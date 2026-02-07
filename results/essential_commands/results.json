@@ -1,0 +1,210 @@
+{
+  "interval_operations": {
+    "interval_created": "chr1:1000-1010:.",
+    "interval_center": 1005,
+    "interval_width": 10,
+    "interval_resized": "chr1:955-1055:.",
+    "overlaps": true,
+    "contains": false,
+    "intersect": "chr1:1005-1010:."
+  },
+  "variant_operations": {
+    "variant_created": "chr3:10000:A>C",
+    "insertion_created": "chr3:10000:T>CGTCAAT",
+    "deletion_created": "chr3:10000:AGGGATC>C",
+    "reference_interval": "chr3:9999-10000:.",
+    "reference_overlaps": false,
+    "alternate_overlaps": true
+  },
+  "trackdata_operations": {
+    "trackdata_created": true,
+    "trackdata_shape": [
+      4,
+      3
+    ],
+    "trackdata_with_resolution": true,
+    "downsampled_values": [
+      [
+        3.0,
+        5.0,
+        7.0
+      ],
+      [
+        15.0,
+        17.0,
+        19.0
+      ]
+    ],
+    "upsampled_values": [
+      [
+        1.5,
+        2.5,
+        3.5
+      ],
+      [
+        1.5,
+        2.5,
+        3.5
+      ],
+      [
+        7.5,
+        8.5,
+        9.5
+      ],
+      [
+        7.5,
+        8.5,
+        9.5
+      ]
+    ],
+    "positive_strand_tracks": [
+      "track1"
+    ],
+    "negative_strand_tracks": [
+      "track1"
+    ],
+    "unstranded_tracks": [
+      "track2"
+    ],
+    "resized_small": [
+      [
+        3.0,
+        4.0,
+        5.0
+      ],
+      [
+        6.0,
+        7.0,
+        8.0
+      ]
+    ],
+    "resized_big": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        2.0
+      ],
+      [
+        3.0,
+        4.0,
+        5.0
+      ],
+      [
+        6.0,
+        7.0,
+        8.0
+      ],
+      [
+        9.0,
+        10.0,
+        11.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "sliced_by_position": [
+      [
+        6.0,
+        7.0,
+        8.0
+      ],
+      [
+        9.0,
+        10.0,
+        11.0
+      ]
+    ],
+    "sliced_by_interval": [
+      [
+        6.0,
+        7.0,
+        8.0
+      ],
+      [
+        9.0,
+        10.0,
+        11.0
+      ]
+    ],
+    "track1_values": [
+      [
+        0.0,
+        1.0
+      ],
+      [
+        3.0,
+        4.0
+      ],
+      [
+        6.0,
+        7.0
+      ],
+      [
+        9.0,
+        10.0
+      ]
+    ],
+    "track1_metadata": [
+      "track1",
+      "track1"
+    ],
+    "tracks_by_index": [
+      [
+        0.0,
+        1.0
+      ],
+      [
+        3.0,
+        4.0
+      ],
+      [
+        6.0,
+        7.0
+      ],
+      [
+        9.0,
+        10.0
+      ]
+    ],
+    "reverse_complement": [
+      [
+        10.0,
+        9.0,
+        11.0
+      ],
+      [
+        7.0,
+        6.0,
+        8.0
+      ],
+      [
+        4.0,
+        3.0,
+        5.0
+      ],
+      [
+        1.0,
+        0.0,
+        2.0
+      ]
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "variant": "chr22:36201698:A>C",
+  "chromosome": "chr22",
+  "position": 36201698,
+  "reference": "A",
+  "alternate": "C",
+  "interval": "chr22:35677410-36725986:.",
+  "sequence_length": "1MB",
+  "total_scores": 38357,
+  "score_statistics": {
+    "mean_raw_score": 98.90923309326172,
+    "median_raw_score": 0.0010571479797363281,
+    "std_raw_score": 581.6310424804688,
+    "min_raw_score": -6.875822067260742,
+    "max_raw_score": 22558.5
+  },
+  "unique_scorers": 19,
+  "plots": [
+    "/home/kyuwon/projects/alphagenome/results/variant_scoring_cli/plot_rna_seq.png",
+    "/home/kyuwon/projects/alphagenome/results/variant_scoring_cli/plot_dnase.png"
+  ]
+}

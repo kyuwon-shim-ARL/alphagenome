@@ -1,0 +1,37 @@
+{
+  "interval": "chr22:35677410-36725986:.",
+  "visualizations": {
+    "01_rna_seq": {
+      "file": "/home/kyuwon/projects/alphagenome/results/visualization_tour/01_rna_seq.png",
+      "status": "success"
+    },
+    "02_cage": {
+      "file": "/home/kyuwon/projects/alphagenome/results/visualization_tour/02_cage.png",
+      "status": "success"
+    },
+    "03_dnase": {
+      "file": "/home/kyuwon/projects/alphagenome/results/visualization_tour/03_dnase.png",
+      "status": "success"
+    },
+    "04_atac": {
+      "file": "/home/kyuwon/projects/alphagenome/results/visualization_tour/04_atac.png",
+      "status": "success"
+    },
+    "05_chip_histone": {
+      "file": "/home/kyuwon/projects/alphagenome/results/visualization_tour/05_chip_histone.png",
+      "status": "success"
+    },
+    "06_splice": {
+      "file": "/home/kyuwon/projects/alphagenome/results/visualization_tour/06_splice.png",
+      "status": "success"
+    },
+    "07_contact_maps": {
+      "file": "/home/kyuwon/projects/alphagenome/results/visualization_tour/07_contact_maps.png",
+      "status": "success"
+    }
+  },
+  "summary": {
+    "total": 7,
+    "successful": 7
+  }
+}

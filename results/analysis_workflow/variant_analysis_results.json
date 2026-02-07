@@ -1,0 +1,1291 @@
+{
+  "variant_scores": [
+    {
+      "variant_id": "Jurkat",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CCGTTTCCTAACC",
+      "output": true,
+      "tal1_diff_in_cd34": 0.5443748235702515,
+      "variant_group": "47239296_13"
+    },
+    {
+      "variant_id": "MOLT-3",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ACC",
+      "output": true,
+      "tal1_diff_in_cd34": 0.4083315432071686,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "Patient_1",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AACG",
+      "output": true,
+      "tal1_diff_in_cd34": 0.33998802304267883,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "Patient_2",
+      "CHROM": "chr1",
+      "POS": 47239291,
+      "REF": "CTAACC",
+      "ALT": "TTTACCGTCTGTTAACGGC",
+      "output": true,
+      "tal1_diff_in_cd34": -0.007810533046722412,
+      "variant_group": "47239291_19"
+    },
+    {
+      "variant_id": "Patient_3-5",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ACG",
+      "output": true,
+      "tal1_diff_in_cd34": 0.48528167605400085,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "Patient_6",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ACC",
+      "output": true,
+      "tal1_diff_in_cd34": 0.4083315432071686,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "Patient_7",
+      "CHROM": "chr1",
+      "POS": 47239295,
+      "REF": "AC",
+      "ALT": "TCAAACTGGTAACC",
+      "output": true,
+      "tal1_diff_in_cd34": 0.28284865617752075,
+      "variant_group": "47239295_14"
+    },
+    {
+      "variant_id": "Patient_8",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AACC",
+      "output": true,
+      "tal1_diff_in_cd34": 0.31473109126091003,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "new 3' enhancer 1",
+      "CHROM": "chr1",
+      "POS": 47212072,
+      "REF": "T",
+      "ALT": "TGGGTAAACCGTCTGTTCAGCG",
+      "output": true,
+      "tal1_diff_in_cd34": 0.33481666445732117,
+      "variant_group": "47212072_22"
+    },
+    {
+      "variant_id": "new 3' enhancer 2",
+      "CHROM": "chr1",
+      "POS": 47212074,
+      "REF": "G",
+      "ALT": "GAACGTT",
+      "output": true,
+      "tal1_diff_in_cd34": 0.31954625248908997,
+      "variant_group": "47212074_7"
+    },
+    {
+      "variant_id": "intergenic SNV 1",
+      "CHROM": "chr1",
+      "POS": 47230639,
+      "REF": "C",
+      "ALT": "T",
+      "output": true,
+      "tal1_diff_in_cd34": 0.038175374269485474,
+      "variant_group": "47230639_1"
+    },
+    {
+      "variant_id": "intergenic SNV 2",
+      "CHROM": "chr1",
+      "POS": 47230639,
+      "REF": "C",
+      "ALT": "T",
+      "output": true,
+      "tal1_diff_in_cd34": 0.038175374269485474,
+      "variant_group": "47230639_1"
+    },
+    {
+      "variant_id": "SJALL040467_D1",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AACC",
+      "output": true,
+      "tal1_diff_in_cd34": 0.31473109126091003,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "PATBGC",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AACC",
+      "output": true,
+      "tal1_diff_in_cd34": 0.31473109126091003,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "PATBTX",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ACGGATATAACC",
+      "output": true,
+      "tal1_diff_in_cd34": 0.6912188529968262,
+      "variant_group": "47239296_12"
+    },
+    {
+      "variant_id": "PARJAY",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ACGGAATTTCTAACC",
+      "output": true,
+      "tal1_diff_in_cd34": 0.7677537202835083,
+      "variant_group": "47239296_15"
+    },
+    {
+      "variant_id": "PARSJG",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AACC",
+      "output": true,
+      "tal1_diff_in_cd34": 0.31473109126091003,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "PASYAJ",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AACC",
+      "output": true,
+      "tal1_diff_in_cd34": 0.31473109126091003,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "PATRAB",
+      "CHROM": "chr1",
+      "POS": 47239293,
+      "REF": "TTA",
+      "ALT": "CTAACGG",
+      "output": true,
+      "tal1_diff_in_cd34": 0.20191150903701782,
+      "variant_group": "47239293_7"
+    },
+    {
+      "variant_id": "PAUBXP",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ACC",
+      "output": true,
+      "tal1_diff_in_cd34": 0.4083315432071686,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "PATENL",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AACC",
+      "output": true,
+      "tal1_diff_in_cd34": 0.31473109126091003,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "PARNXJ",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ACG",
+      "output": true,
+      "tal1_diff_in_cd34": 0.48528167605400085,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "PASXSI",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AACC",
+      "output": true,
+      "tal1_diff_in_cd34": 0.31473109126091003,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "PASNEH",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ACC",
+      "output": true,
+      "tal1_diff_in_cd34": 0.4083315432071686,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "PAUAFN",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AACC",
+      "output": true,
+      "tal1_diff_in_cd34": 0.31473109126091003,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "PARASZ",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ACC",
+      "output": true,
+      "tal1_diff_in_cd34": 0.4083315432071686,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "PARWNW",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ACC",
+      "output": true,
+      "tal1_diff_in_cd34": 0.4083315432071686,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "PASFKA",
+      "CHROM": "chr1",
+      "POS": 47239293,
+      "REF": "TTA",
+      "ALT": "ACCGTTAATCAA",
+      "output": true,
+      "tal1_diff_in_cd34": 0.3416750431060791,
+      "variant_group": "47239293_12"
+    },
+    {
+      "variant_id": "PATEIT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AC",
+      "output": true,
+      "tal1_diff_in_cd34": 0.2141043245792389,
+      "variant_group": "47239296_2"
+    },
+    {
+      "variant_id": "PASMHF",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AC",
+      "output": true,
+      "tal1_diff_in_cd34": 0.2141043245792389,
+      "variant_group": "47239296_2"
+    },
+    {
+      "variant_id": "PARJNX",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AC",
+      "output": true,
+      "tal1_diff_in_cd34": 0.2141043245792389,
+      "variant_group": "47239296_2"
+    },
+    {
+      "variant_id": "PASYWF",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AC",
+      "output": true,
+      "tal1_diff_in_cd34": 0.2141043245792389,
+      "variant_group": "47239296_2"
+    },
+    {
+      "variant_id": "mut_47239296_TGTGATCGCATTG",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "TGTGATCGCATTG",
+      "output": false,
+      "tal1_diff_in_cd34": -0.009659826755523682,
+      "variant_group": "47239296_13"
+    },
+    {
+      "variant_id": "mut_47239296_ATGCCTAGAAGTG",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ATGCCTAGAAGTG",
+      "output": false,
+      "tal1_diff_in_cd34": -0.009177088737487793,
+      "variant_group": "47239296_13"
+    },
+    {
+      "variant_id": "mut_47239296_CTGCCAAGTATTC",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CTGCCAAGTATTC",
+      "output": false,
+      "tal1_diff_in_cd34": -0.011734545230865479,
+      "variant_group": "47239296_13"
+    },
+    {
+      "variant_id": "mut_47239296_AGA",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AGA",
+      "output": false,
+      "tal1_diff_in_cd34": -0.0053122639656066895,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239296_ATG",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ATG",
+      "output": false,
+      "tal1_diff_in_cd34": -0.004507511854171753,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239296_CCT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CCT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.029443711042404175,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239296_CTAG",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CTAG",
+      "output": false,
+      "tal1_diff_in_cd34": -0.0083371102809906,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_AAGT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AAGT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.005084246397018433,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_ATGC",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ATGC",
+      "output": false,
+      "tal1_diff_in_cd34": -0.006032377481460571,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239291_ATGCCTAGAAGTGTGTGAT",
+      "CHROM": "chr1",
+      "POS": 47239291,
+      "REF": "CTAACC",
+      "ALT": "ATGCCTAGAAGTGTGTGAT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.3004692494869232,
+      "variant_group": "47239291_19"
+    },
+    {
+      "variant_id": "mut_47239291_CGATGCATCTGTTACCCAG",
+      "CHROM": "chr1",
+      "POS": 47239291,
+      "REF": "CTAACC",
+      "ALT": "CGATGCATCTGTTACCCAG",
+      "output": false,
+      "tal1_diff_in_cd34": -0.28722521662712097,
+      "variant_group": "47239291_19"
+    },
+    {
+      "variant_id": "mut_47239291_CGCATTGCTGCCAAGTATT",
+      "CHROM": "chr1",
+      "POS": 47239291,
+      "REF": "CTAACC",
+      "ALT": "CGCATTGCTGCCAAGTATT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.3024749457836151,
+      "variant_group": "47239291_19"
+    },
+    {
+      "variant_id": "mut_47239296_AGA",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AGA",
+      "output": false,
+      "tal1_diff_in_cd34": -0.0053122639656066895,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239296_ATG",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ATG",
+      "output": false,
+      "tal1_diff_in_cd34": -0.004507511854171753,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239296_CCT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CCT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.029443711042404175,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239296_AGA",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AGA",
+      "output": false,
+      "tal1_diff_in_cd34": -0.0053122639656066895,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239296_ATG",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ATG",
+      "output": false,
+      "tal1_diff_in_cd34": -0.004507511854171753,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239296_CCT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CCT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.029443711042404175,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239295_ATGCCTAGAAGTGT",
+      "CHROM": "chr1",
+      "POS": 47239295,
+      "REF": "AC",
+      "ALT": "ATGCCTAGAAGTGT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.013013601303100586,
+      "variant_group": "47239295_14"
+    },
+    {
+      "variant_id": "mut_47239295_GTGATCGCATTGCT",
+      "CHROM": "chr1",
+      "POS": 47239295,
+      "REF": "AC",
+      "ALT": "GTGATCGCATTGCT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.017699450254440308,
+      "variant_group": "47239295_14"
+    },
+    {
+      "variant_id": "mut_47239295_GCCAAGTATTCGAT",
+      "CHROM": "chr1",
+      "POS": 47239295,
+      "REF": "AC",
+      "ALT": "GCCAAGTATTCGAT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.025178909301757812,
+      "variant_group": "47239295_14"
+    },
+    {
+      "variant_id": "mut_47239296_CTAG",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CTAG",
+      "output": false,
+      "tal1_diff_in_cd34": -0.0083371102809906,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_AAGT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AAGT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.005084246397018433,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_ATGC",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ATGC",
+      "output": false,
+      "tal1_diff_in_cd34": -0.006032377481460571,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47212072_ATCTGTTACCCAGAGGTGCTCC",
+      "CHROM": "chr1",
+      "POS": 47212072,
+      "REF": "T",
+      "ALT": "ATCTGTTACCCAGAGGTGCTCC",
+      "output": false,
+      "tal1_diff_in_cd34": -0.1649295836687088,
+      "variant_group": "47212072_22"
+    },
+    {
+      "variant_id": "mut_47212072_ATTGCTGCCAAGTATTCGATGC",
+      "CHROM": "chr1",
+      "POS": 47212072,
+      "REF": "T",
+      "ALT": "ATTGCTGCCAAGTATTCGATGC",
+      "output": false,
+      "tal1_diff_in_cd34": -0.2111804187297821,
+      "variant_group": "47212072_22"
+    },
+    {
+      "variant_id": "mut_47212072_ATGCCTAGAAGTGTGTGATCGC",
+      "CHROM": "chr1",
+      "POS": 47212072,
+      "REF": "T",
+      "ALT": "ATGCCTAGAAGTGTGTGATCGC",
+      "output": false,
+      "tal1_diff_in_cd34": -0.10242807865142822,
+      "variant_group": "47212072_22"
+    },
+    {
+      "variant_id": "mut_47212074_ATGCCTA",
+      "CHROM": "chr1",
+      "POS": 47212074,
+      "REF": "G",
+      "ALT": "ATGCCTA",
+      "output": false,
+      "tal1_diff_in_cd34": -0.02902156114578247,
+      "variant_group": "47212074_7"
+    },
+    {
+      "variant_id": "mut_47212074_GAAGTGT",
+      "CHROM": "chr1",
+      "POS": 47212074,
+      "REF": "G",
+      "ALT": "GAAGTGT",
+      "output": false,
+      "tal1_diff_in_cd34": 0.18012580275535583,
+      "variant_group": "47212074_7"
+    },
+    {
+      "variant_id": "mut_47212074_GTGATCG",
+      "CHROM": "chr1",
+      "POS": 47212074,
+      "REF": "G",
+      "ALT": "GTGATCG",
+      "output": false,
+      "tal1_diff_in_cd34": -0.10758236050605774,
+      "variant_group": "47212074_7"
+    },
+    {
+      "variant_id": "mut_47230639_A",
+      "CHROM": "chr1",
+      "POS": 47230639,
+      "REF": "C",
+      "ALT": "A",
+      "output": false,
+      "tal1_diff_in_cd34": -0.010465562343597412,
+      "variant_group": "47230639_1"
+    },
+    {
+      "variant_id": "mut_47230639_C",
+      "CHROM": "chr1",
+      "POS": 47230639,
+      "REF": "C",
+      "ALT": "C",
+      "output": false,
+      "tal1_diff_in_cd34": 0.0,
+      "variant_group": "47230639_1"
+    },
+    {
+      "variant_id": "mut_47230639_G",
+      "CHROM": "chr1",
+      "POS": 47230639,
+      "REF": "C",
+      "ALT": "G",
+      "output": false,
+      "tal1_diff_in_cd34": -0.013228237628936768,
+      "variant_group": "47230639_1"
+    },
+    {
+      "variant_id": "mut_47230639_A",
+      "CHROM": "chr1",
+      "POS": 47230639,
+      "REF": "C",
+      "ALT": "A",
+      "output": false,
+      "tal1_diff_in_cd34": -0.010465562343597412,
+      "variant_group": "47230639_1"
+    },
+    {
+      "variant_id": "mut_47230639_C",
+      "CHROM": "chr1",
+      "POS": 47230639,
+      "REF": "C",
+      "ALT": "C",
+      "output": false,
+      "tal1_diff_in_cd34": 0.0,
+      "variant_group": "47230639_1"
+    },
+    {
+      "variant_id": "mut_47230639_G",
+      "CHROM": "chr1",
+      "POS": 47230639,
+      "REF": "C",
+      "ALT": "G",
+      "output": false,
+      "tal1_diff_in_cd34": -0.013228237628936768,
+      "variant_group": "47230639_1"
+    },
+    {
+      "variant_id": "mut_47239296_CTAG",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CTAG",
+      "output": false,
+      "tal1_diff_in_cd34": -0.0083371102809906,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_AAGT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AAGT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.005084246397018433,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_ATGC",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ATGC",
+      "output": false,
+      "tal1_diff_in_cd34": -0.006032377481460571,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_CTAG",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CTAG",
+      "output": false,
+      "tal1_diff_in_cd34": -0.0083371102809906,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_AAGT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AAGT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.005084246397018433,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_ATGC",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ATGC",
+      "output": false,
+      "tal1_diff_in_cd34": -0.006032377481460571,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_TGCTGCCAAGTA",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "TGCTGCCAAGTA",
+      "output": false,
+      "tal1_diff_in_cd34": -0.00942385196685791,
+      "variant_group": "47239296_12"
+    },
+    {
+      "variant_id": "mut_47239296_ATGCCTAGAAGT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ATGCCTAGAAGT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.008968144655227661,
+      "variant_group": "47239296_12"
+    },
+    {
+      "variant_id": "mut_47239296_GTGTGATCGCAT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "GTGTGATCGCAT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.007665872573852539,
+      "variant_group": "47239296_12"
+    },
+    {
+      "variant_id": "mut_47239296_CAAGTATTCGATGCA",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CAAGTATTCGATGCA",
+      "output": false,
+      "tal1_diff_in_cd34": -0.017284244298934937,
+      "variant_group": "47239296_15"
+    },
+    {
+      "variant_id": "mut_47239296_TGATCGCATTGCTGC",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "TGATCGCATTGCTGC",
+      "output": false,
+      "tal1_diff_in_cd34": -0.0161515474319458,
+      "variant_group": "47239296_15"
+    },
+    {
+      "variant_id": "mut_47239296_ATGCCTAGAAGTGTG",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ATGCCTAGAAGTGTG",
+      "output": false,
+      "tal1_diff_in_cd34": 0.0027420520782470703,
+      "variant_group": "47239296_15"
+    },
+    {
+      "variant_id": "mut_47239296_CTAG",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CTAG",
+      "output": false,
+      "tal1_diff_in_cd34": -0.0083371102809906,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_AAGT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AAGT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.005084246397018433,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_ATGC",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ATGC",
+      "output": false,
+      "tal1_diff_in_cd34": -0.006032377481460571,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_CTAG",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CTAG",
+      "output": false,
+      "tal1_diff_in_cd34": -0.0083371102809906,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_AAGT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AAGT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.005084246397018433,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_ATGC",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ATGC",
+      "output": false,
+      "tal1_diff_in_cd34": -0.006032377481460571,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239293_ATGCCTA",
+      "CHROM": "chr1",
+      "POS": 47239293,
+      "REF": "TTA",
+      "ALT": "ATGCCTA",
+      "output": false,
+      "tal1_diff_in_cd34": -0.014290302991867065,
+      "variant_group": "47239293_7"
+    },
+    {
+      "variant_id": "mut_47239293_GAAGTGT",
+      "CHROM": "chr1",
+      "POS": 47239293,
+      "REF": "TTA",
+      "ALT": "GAAGTGT",
+      "output": false,
+      "tal1_diff_in_cd34": 0.014561593532562256,
+      "variant_group": "47239293_7"
+    },
+    {
+      "variant_id": "mut_47239293_GTGATCG",
+      "CHROM": "chr1",
+      "POS": 47239293,
+      "REF": "TTA",
+      "ALT": "GTGATCG",
+      "output": false,
+      "tal1_diff_in_cd34": -0.007165729999542236,
+      "variant_group": "47239293_7"
+    },
+    {
+      "variant_id": "mut_47239296_AGA",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AGA",
+      "output": false,
+      "tal1_diff_in_cd34": -0.0053122639656066895,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239296_ATG",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ATG",
+      "output": false,
+      "tal1_diff_in_cd34": -0.004507511854171753,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239296_CCT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CCT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.029443711042404175,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239296_CTAG",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CTAG",
+      "output": false,
+      "tal1_diff_in_cd34": -0.0083371102809906,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_AAGT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AAGT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.005084246397018433,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_ATGC",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ATGC",
+      "output": false,
+      "tal1_diff_in_cd34": -0.006032377481460571,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_AGA",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AGA",
+      "output": false,
+      "tal1_diff_in_cd34": -0.0053122639656066895,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239296_ATG",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ATG",
+      "output": false,
+      "tal1_diff_in_cd34": -0.004507511854171753,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239296_CCT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CCT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.029443711042404175,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239296_CTAG",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CTAG",
+      "output": false,
+      "tal1_diff_in_cd34": -0.0083371102809906,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_AAGT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AAGT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.005084246397018433,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_ATGC",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ATGC",
+      "output": false,
+      "tal1_diff_in_cd34": -0.006032377481460571,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_AGA",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AGA",
+      "output": false,
+      "tal1_diff_in_cd34": -0.0053122639656066895,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239296_ATG",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ATG",
+      "output": false,
+      "tal1_diff_in_cd34": -0.004507511854171753,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239296_CCT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CCT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.029443711042404175,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239296_CTAG",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CTAG",
+      "output": false,
+      "tal1_diff_in_cd34": -0.0083371102809906,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_AAGT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AAGT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.005084246397018433,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_ATGC",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ATGC",
+      "output": false,
+      "tal1_diff_in_cd34": -0.006032377481460571,
+      "variant_group": "47239296_4"
+    },
+    {
+      "variant_id": "mut_47239296_AGA",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AGA",
+      "output": false,
+      "tal1_diff_in_cd34": -0.0053122639656066895,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239296_ATG",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ATG",
+      "output": false,
+      "tal1_diff_in_cd34": -0.004507511854171753,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239296_CCT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CCT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.029443711042404175,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239296_AGA",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AGA",
+      "output": false,
+      "tal1_diff_in_cd34": -0.0053122639656066895,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239296_ATG",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "ATG",
+      "output": false,
+      "tal1_diff_in_cd34": -0.004507511854171753,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239296_CCT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CCT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.029443711042404175,
+      "variant_group": "47239296_3"
+    },
+    {
+      "variant_id": "mut_47239293_TGCTGCCAAGTA",
+      "CHROM": "chr1",
+      "POS": 47239293,
+      "REF": "TTA",
+      "ALT": "TGCTGCCAAGTA",
+      "output": false,
+      "tal1_diff_in_cd34": -0.003687262535095215,
+      "variant_group": "47239293_12"
+    },
+    {
+      "variant_id": "mut_47239293_ATGCCTAGAAGT",
+      "CHROM": "chr1",
+      "POS": 47239293,
+      "REF": "TTA",
+      "ALT": "ATGCCTAGAAGT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.014367282390594482,
+      "variant_group": "47239293_12"
+    },
+    {
+      "variant_id": "mut_47239293_GTGTGATCGCAT",
+      "CHROM": "chr1",
+      "POS": 47239293,
+      "REF": "TTA",
+      "ALT": "GTGTGATCGCAT",
+      "output": false,
+      "tal1_diff_in_cd34": -0.008035808801651001,
+      "variant_group": "47239293_12"
+    },
+    {
+      "variant_id": "mut_47239296_GC",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "GC",
+      "output": false,
+      "tal1_diff_in_cd34": 0.019347697496414185,
+      "variant_group": "47239296_2"
+    },
+    {
+      "variant_id": "mut_47239296_AT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AT",
+      "output": false,
+      "tal1_diff_in_cd34": 0.006351292133331299,
+      "variant_group": "47239296_2"
+    },
+    {
+      "variant_id": "mut_47239296_CT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CT",
+      "output": false,
+      "tal1_diff_in_cd34": 0.012456834316253662,
+      "variant_group": "47239296_2"
+    },
+    {
+      "variant_id": "mut_47239296_GC",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "GC",
+      "output": false,
+      "tal1_diff_in_cd34": 0.019347697496414185,
+      "variant_group": "47239296_2"
+    },
+    {
+      "variant_id": "mut_47239296_AT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AT",
+      "output": false,
+      "tal1_diff_in_cd34": 0.006351292133331299,
+      "variant_group": "47239296_2"
+    },
+    {
+      "variant_id": "mut_47239296_CT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CT",
+      "output": false,
+      "tal1_diff_in_cd34": 0.012456834316253662,
+      "variant_group": "47239296_2"
+    },
+    {
+      "variant_id": "mut_47239296_GC",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "GC",
+      "output": false,
+      "tal1_diff_in_cd34": 0.019347697496414185,
+      "variant_group": "47239296_2"
+    },
+    {
+      "variant_id": "mut_47239296_AT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AT",
+      "output": false,
+      "tal1_diff_in_cd34": 0.006351292133331299,
+      "variant_group": "47239296_2"
+    },
+    {
+      "variant_id": "mut_47239296_CT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CT",
+      "output": false,
+      "tal1_diff_in_cd34": 0.012456834316253662,
+      "variant_group": "47239296_2"
+    },
+    {
+      "variant_id": "mut_47239296_GC",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "GC",
+      "output": false,
+      "tal1_diff_in_cd34": 0.019347697496414185,
+      "variant_group": "47239296_2"
+    },
+    {
+      "variant_id": "mut_47239296_AT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "AT",
+      "output": false,
+      "tal1_diff_in_cd34": 0.006351292133331299,
+      "variant_group": "47239296_2"
+    },
+    {
+      "variant_id": "mut_47239296_CT",
+      "CHROM": "chr1",
+      "POS": 47239296,
+      "REF": "C",
+      "ALT": "CT",
+      "output": false,
+      "tal1_diff_in_cd34": 0.012456834316253662,
+      "variant_group": "47239296_2"
+    }
+  ],
+  "summary": {
+    "total_variants": 128,
+    "oncogenic_variants": 32,
+    "background_variants": 96,
+    "mean_oncogenic_effect": 0.3339841365814209,
+    "mean_background_effect": -0.019638972356915474
+  }
+}

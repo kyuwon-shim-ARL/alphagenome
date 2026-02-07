@@ -1,0 +1,192 @@
+{
+  "tutorial": "quick_start",
+  "timestamp": "2026-02-05T09:42:16.579770",
+  "sections": [
+    {
+      "section": "Model Created",
+      "data": "Success"
+    },
+    {
+      "section": "Output Types",
+      "data": [
+        "ATAC",
+        "CAGE",
+        "DNASE",
+        "RNA_SEQ",
+        "CHIP_HISTONE",
+        "CHIP_TF",
+        "SPLICE_SITES",
+        "SPLICE_SITE_USAGE",
+        "SPLICE_JUNCTIONS",
+        "CONTACT_MAPS",
+        "PROCAP"
+      ]
+    },
+    {
+      "section": "DNase Prediction Shape",
+      "data": "(1048576, 1)"
+    },
+    {
+      "section": "DNase Metadata",
+      "data": {
+        "name": {
+          "0": "UBERON:0002048 DNase-seq"
+        },
+        "strand": {
+          "0": "."
+        },
+        "Assay title": {
+          "0": "DNase-seq"
+        },
+        "ontology_curie": {
+          "0": "UBERON:0002048"
+        },
+        "biosample_name": {
+          "0": "lung"
+        },
+        "biosample_type": {
+          "0": "tissue"
+        },
+        "biosample_life_stage": {
+          "0": "embryonic"
+        },
+        "data_source": {
+          "0": "encode"
+        },
+        "endedness": {
+          "0": "paired"
+        },
+        "genetically_modified": {
+          "0": false
+        },
+        "nonzero_mean": {
+          "0": 0.4275049567222595
+        }
+      }
+    },
+    {
+      "section": "DNASE Shape",
+      "data": "(1048576, 2)"
+    },
+    {
+      "section": "CAGE Shape",
+      "data": "(1048576, 4)"
+    },
+    {
+      "section": "CAGE Metadata",
+      "data": {
+        "name": {
+          "0": "hCAGE UBERON:0000955",
+          "1": "hCAGE UBERON:0002048",
+          "2": "hCAGE UBERON:0000955",
+          "3": "hCAGE UBERON:0002048"
+        },
+        "strand": {
+          "0": "+",
+          "1": "+",
+          "2": "-",
+          "3": "-"
+        },
+        "Assay title": {
+          "0": "hCAGE",
+          "1": "hCAGE",
+          "2": "hCAGE",
+          "3": "hCAGE"
+        },
+        "ontology_curie": {
+          "0": "UBERON:0000955",
+          "1": "UBERON:0002048",
+          "2": "UBERON:0000955",
+          "3": "UBERON:0002048"
+        },
+        "biosample_name": {
+          "0": "brain",
+          "1": "lung",
+          "2": "brain",
+          "3": "lung"
+        },
+        "biosample_type": {
+          "0": "tissue",
+          "1": "tissue",
+          "2": "tissue",
+          "3": "tissue"
+        },
+        "data_source": {
+          "0": "fantom",
+          "1": "fantom",
+          "2": "fantom",
+          "3": "fantom"
+        },
+        "nonzero_mean": {
+          "0": 28.4322452545166,
+          "1": 30.655853271484375,
+          "2": 28.4322452545166,
+          "3": 30.655853271484375
+        }
+      }
+    },
+    {
+      "section": "CYP2B6 Interval",
+      "data": "chr19:40991281-41018398:+"
+    },
+    {
+      "section": "RNA-seq Shape",
+      "data": "(1048576, 3)"
+    },
+    {
+      "section": "Transcripts in Interval",
+      "data": 29
+    },
+    {
+      "section": "Saved Plot",
+      "data": "cyp2b6_rna_seq.png"
+    },
+    {
+      "section": "Variant REF Shape",
+      "data": "(1048576, 3)"
+    },
+    {
+      "section": "Variant ALT Shape",
+      "data": "(1048576, 3)"
+    },
+    {
+      "section": "Saved Plot",
+      "data": "variant_effect.png"
+    },
+    {
+      "section": "Variant Scores Shape",
+      "data": "(37, 667)"
+    },
+    {
+      "section": "Genes Scored",
+      "data": [
+        "RBFOX2",
+        "APOL4",
+        "APOL1",
+        "MYH9",
+        "TXN2",
+        "FOXRED2",
+        "EIF3D",
+        "APOL3",
+        "APOL5",
+        "APOL2"
+      ]
+    },
+    {
+      "section": "Tidy Scores Shape",
+      "data": "(14652, 19)"
+    },
+    {
+      "section": "Saved CSV",
+      "data": "variant_scores.csv"
+    },
+    {
+      "section": "ISM Variants Scored",
+      "data": 192
+    },
+    {
+      "section": "Mouse DNase Shape",
+      "data": "(1048576, 1)"
+    }
+  ]
+}

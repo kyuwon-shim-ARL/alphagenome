@@ -1,0 +1,47 @@
+{
+  "plots": {
+    "procap": {
+      "file": "/home/kyuwon/projects/alphagenome/results/procap_visualization/procap.png",
+      "status": "success"
+    }
+  },
+  "metadata": {
+    "interval": "chr22:35677410-36725986:.",
+    "cell_lines": {
+      "A673": "EFO:0002106",
+      "Caco-2": "EFO:0001099",
+      "K562": "EFO:0002067",
+      "Calu3": "EFO:0002819",
+      "MCF 10A": "EFO:0001200",
+      "HUVEC": "CL:0002618"
+    },
+    "retrieved_cell_lines": [
+      "A673",
+      "Caco-2",
+      "K562",
+      "Calu3",
+      "endothelial cell of umbilical vein",
+      "MCF 10A"
+    ],
+    "track_count": 12
+  },
+  "summary": {
+    "total_plots": 1,
+    "expected_cell_lines": [
+      "A673",
+      "Caco-2",
+      "K562",
+      "Calu3",
+      "MCF 10A",
+      "HUVEC"
+    ],
+    "retrieved_cell_lines": [
+      "A673",
+      "Caco-2",
+      "K562",
+      "Calu3",
+      "endothelial cell of umbilical vein",
+      "MCF 10A"
+    ]
+  }
+}

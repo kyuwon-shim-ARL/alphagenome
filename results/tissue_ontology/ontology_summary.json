@@ -1,0 +1,30 @@
+{
+  "total_human_tracks": 5563,
+  "total_mouse_tracks": 1038,
+  "human_ontology_types": [
+    "CL",
+    "CLO",
+    "EFO",
+    "NTR",
+    "UBERON"
+  ],
+  "mouse_ontology_types": [
+    "CL",
+    "EFO",
+    "NTR",
+    "UBERON"
+  ],
+  "human_ontology_counts": {
+    "CL": 227,
+    "CLO": 52,
+    "EFO": 198,
+    "NTR": 18,
+    "UBERON": 209
+  },
+  "mouse_ontology_counts": {
+    "CL": 57,
+    "EFO": 24,
+    "NTR": 12,
+    "UBERON": 85
+  }
+}

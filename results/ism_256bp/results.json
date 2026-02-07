@@ -1,0 +1,43 @@
+{
+  "analysis": "ism_256bp",
+  "timestamp": "2026-02-05T16:37:59.880046",
+  "parameters": {
+    "ism_width": 256,
+    "expected_variants": 768,
+    "api_delay": 2.0
+  },
+  "interval": {
+    "sequence_interval": "chr20:3745008-3761392:.",
+    "ism_interval": "chr20:3753072-3753328:.",
+    "ism_width": 256
+  },
+  "scoring": {
+    "variants_scored": 768,
+    "elapsed_time_seconds": 9.957890748977661
+  },
+  "dataframe": {
+    "shape": [
+      768,
+      5
+    ],
+    "columns": [
+      "chromosome",
+      "position",
+      "reference",
+      "alternate",
+      "raw_score"
+    ]
+  },
+  "outputs": {
+    "csv": "/home/kyuwon/projects/alphagenome/results/ism_256bp/ism_scores.csv",
+    "heatmap": "/home/kyuwon/projects/alphagenome/results/ism_256bp/ism_heatmap.png"
+  },
+  "statistics": {
+    "mean": -0.007205752206004945,
+    "std": 0.038178733755625256,
+    "min": -0.19276785850524902,
+    "max": 0.15111073851585388,
+    "median": -0.00011189705764991231
+  },
+  "status": "success"
+}

@@ -1,0 +1,52 @@
+{
+  "plots": {
+    "chip_tf_k562_ctcf": {
+      "file": "/home/kyuwon/projects/alphagenome/results/chip_tf_analysis/chip_tf_k562_ctcf.png",
+      "status": "success"
+    },
+    "chip_tf_hepg2_ctcf": {
+      "file": "/home/kyuwon/projects/alphagenome/results/chip_tf_analysis/chip_tf_hepg2_ctcf.png",
+      "status": "success"
+    },
+    "chip_tf_ctcf_rad21_coloc": {
+      "file": "/home/kyuwon/projects/alphagenome/results/chip_tf_analysis/chip_tf_ctcf_rad21_coloc.png",
+      "status": "success"
+    },
+    "chip_tf_multi_tf": {
+      "file": "/home/kyuwon/projects/alphagenome/results/chip_tf_analysis/chip_tf_multi_tf.png",
+      "status": "success"
+    }
+  },
+  "metadata": {
+    "interval": "chr22:35677410-36725986:.",
+    "cell_lines": {
+      "K562": "EFO:0002067",
+      "HepG2": "EFO:0001187"
+    },
+    "target_tfs": [
+      "CTCF",
+      "RAD21",
+      "POLR2A",
+      "EP300"
+    ],
+    "available_tfs_k562": [
+      "CTCF",
+      "EP300",
+      "POLR2A",
+      "RAD21"
+    ]
+  },
+  "summary": {
+    "total_plots": 4,
+    "cell_lines_analyzed": [
+      "K562",
+      "HepG2"
+    ],
+    "target_tfs": [
+      "CTCF",
+      "RAD21",
+      "POLR2A",
+      "EP300"
+    ]
+  }
+}

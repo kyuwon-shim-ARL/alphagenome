@@ -1,0 +1,257 @@
+[
+  {
+    "variant_id": "chr3:58394738:A>T",
+    "chromosome": "chr3",
+    "total_scores": 12430,
+    "mean_raw_score": 0.0004397838089035542,
+    "median_raw_score": 0.00011669844250000001,
+    "std_raw_score": 0.004935593715225342,
+    "mean_quantile_score": 0.09260502168697204,
+    "unique_ontology_curies": 687,
+    "unique_scorers": 5,
+    "top_positive_scores": [
+      {
+        "ontology_curie": "UBERON:0000955",
+        "variant_scorer": "CenterMaskScorer(requested_output=DNASE, width=501, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": 0.05596924,
+        "quantile_score": 0.7990283
+      },
+      {
+        "ontology_curie": "EFO:0007950",
+        "variant_scorer": "CenterMaskScorer(requested_output=ATAC, width=501, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": 0.047153473,
+        "quantile_score": 0.76789063
+      },
+      {
+        "ontology_curie": "EFO:0007598",
+        "variant_scorer": "CenterMaskScorer(requested_output=DNASE, width=501, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": 0.0457139,
+        "quantile_score": 0.8404825
+      }
+    ],
+    "top_negative_scores": [
+      {
+        "ontology_curie": "CL:0001059",
+        "variant_scorer": "CenterMaskScorer(requested_output=DNASE, width=501, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": -0.12287998,
+        "quantile_score": -0.92720795
+      },
+      {
+        "ontology_curie": "EFO:0003037",
+        "variant_scorer": "CenterMaskScorer(requested_output=DNASE, width=501, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": -0.09124851,
+        "quantile_score": -0.92045027
+      },
+      {
+        "ontology_curie": "EFO:0002067",
+        "variant_scorer": "CenterMaskScorer(requested_output=DNASE, width=501, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": -0.06919098,
+        "quantile_score": -0.8917613
+      }
+    ]
+  },
+  {
+    "variant_id": "chr8:28520:G>C",
+    "chromosome": "chr8",
+    "total_scores": 10450,
+    "mean_raw_score": 2.9185157945983718e-05,
+    "median_raw_score": 1.04904175e-05,
+    "std_raw_score": 0.0016966515621405387,
+    "mean_quantile_score": 0.03707831389245837,
+    "unique_ontology_curies": 687,
+    "unique_scorers": 5,
+    "top_positive_scores": [
+      {
+        "ontology_curie": "EFO:0002059",
+        "variant_scorer": "GeneMaskLFCScorer(requested_output=RNA_SEQ)",
+        "raw_score": 0.011581898,
+        "quantile_score": 0.9971508
+      },
+      {
+        "ontology_curie": "EFO:0002059",
+        "variant_scorer": "GeneMaskLFCScorer(requested_output=RNA_SEQ)",
+        "raw_score": 0.010982513,
+        "quantile_score": 0.9967285
+      },
+      {
+        "ontology_curie": "EFO:0002791",
+        "variant_scorer": "GeneMaskLFCScorer(requested_output=RNA_SEQ)",
+        "raw_score": 0.009538174,
+        "quantile_score": 0.99588126
+      }
+    ],
+    "top_negative_scores": [
+      {
+        "ontology_curie": "UBERON:0002171",
+        "variant_scorer": "GeneMaskLFCScorer(requested_output=RNA_SEQ)",
+        "raw_score": -0.01300621,
+        "quantile_score": -0.9980294
+      },
+      {
+        "ontology_curie": "UBERON:0002170",
+        "variant_scorer": "GeneMaskLFCScorer(requested_output=RNA_SEQ)",
+        "raw_score": -0.012998581,
+        "quantile_score": -0.998203
+      },
+      {
+        "ontology_curie": "UBERON:0008953",
+        "variant_scorer": "GeneMaskLFCScorer(requested_output=RNA_SEQ)",
+        "raw_score": -0.012318134,
+        "quantile_score": -0.9978391
+      }
+    ]
+  },
+  {
+    "variant_id": "chr16:636337:G>A",
+    "chromosome": "chr16",
+    "total_scores": 40150,
+    "mean_raw_score": 0.0033626816765181347,
+    "median_raw_score": -4.7683716e-07,
+    "std_raw_score": 0.018539581602191022,
+    "mean_quantile_score": 0.016986429594728687,
+    "unique_ontology_curies": 687,
+    "unique_scorers": 5,
+    "top_positive_scores": [
+      {
+        "ontology_curie": "CL:0000775",
+        "variant_scorer": "CenterMaskScorer(requested_output=CAGE, width=501, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": 0.3134842,
+        "quantile_score": 0.99516106
+      },
+      {
+        "ontology_curie": "CL:0000771",
+        "variant_scorer": "CenterMaskScorer(requested_output=CAGE, width=501, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": 0.3001213,
+        "quantile_score": 0.99197406
+      },
+      {
+        "ontology_curie": "CL:0001016",
+        "variant_scorer": "CenterMaskScorer(requested_output=CAGE, width=501, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": 0.2743063,
+        "quantile_score": 0.994183
+      }
+    ],
+    "top_negative_scores": [
+      {
+        "ontology_curie": "CL:0001054",
+        "variant_scorer": "CenterMaskScorer(requested_output=CHIP_HISTONE, width=2001, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": -0.12647533,
+        "quantile_score": -0.994183
+      },
+      {
+        "ontology_curie": "CL:0001059",
+        "variant_scorer": "CenterMaskScorer(requested_output=CHIP_HISTONE, width=2001, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": -0.10804939,
+        "quantile_score": -0.9931669
+      },
+      {
+        "ontology_curie": "CL:0000775",
+        "variant_scorer": "CenterMaskScorer(requested_output=CHIP_HISTONE, width=2001, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": -0.10135269,
+        "quantile_score": -0.9936224
+      }
+    ]
+  },
+  {
+    "variant_id": "chr16:1135446:G>T",
+    "chromosome": "chr16",
+    "total_scores": 41734,
+    "mean_raw_score": -0.0008408666231334227,
+    "median_raw_score": -1.9613653000000003e-05,
+    "std_raw_score": 0.010342843118113773,
+    "mean_quantile_score": -0.02941901358048329,
+    "unique_ontology_curies": 687,
+    "unique_scorers": 5,
+    "top_positive_scores": [
+      {
+        "ontology_curie": "CL:0002551",
+        "variant_scorer": "CenterMaskScorer(requested_output=DNASE, width=501, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": 0.08651137,
+        "quantile_score": 0.8471262
+      },
+      {
+        "ontology_curie": "EFO:0005715",
+        "variant_scorer": "CenterMaskScorer(requested_output=DNASE, width=501, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": 0.084546566,
+        "quantile_score": 0.85351515
+      },
+      {
+        "ontology_curie": "EFO:0005724",
+        "variant_scorer": "CenterMaskScorer(requested_output=DNASE, width=501, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": 0.05543661,
+        "quantile_score": 0.84383667
+      }
+    ],
+    "top_negative_scores": [
+      {
+        "ontology_curie": "CL:0001054",
+        "variant_scorer": "CenterMaskScorer(requested_output=CHIP_HISTONE, width=2001, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": -0.6534805,
+        "quantile_score": -0.9972791
+      },
+      {
+        "ontology_curie": "CL:0000863",
+        "variant_scorer": "CenterMaskScorer(requested_output=DNASE, width=501, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": -0.55273604,
+        "quantile_score": -0.9923346
+      },
+      {
+        "ontology_curie": "CL:0001059",
+        "variant_scorer": "CenterMaskScorer(requested_output=DNASE, width=501, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": -0.55012226,
+        "quantile_score": -0.9909971
+      }
+    ]
+  },
+  {
+    "variant_id": "chr1:100000:C>G",
+    "chromosome": "chr1",
+    "total_scores": 16786,
+    "mean_raw_score": 0.0006763415571753497,
+    "median_raw_score": 7.1525574e-06,
+    "std_raw_score": 0.004510793407076005,
+    "mean_quantile_score": 0.05602519602979458,
+    "unique_ontology_curies": 687,
+    "unique_scorers": 5,
+    "top_positive_scores": [
+      {
+        "ontology_curie": "CL:0000134",
+        "variant_scorer": "CenterMaskScorer(requested_output=CHIP_HISTONE, width=2001, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": 0.20346832,
+        "quantile_score": 0.98125464
+      },
+      {
+        "ontology_curie": "CL:0000222",
+        "variant_scorer": "CenterMaskScorer(requested_output=CHIP_HISTONE, width=2001, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": 0.10064125,
+        "quantile_score": 0.9479486
+      },
+      {
+        "ontology_curie": "CL:0000136",
+        "variant_scorer": "CenterMaskScorer(requested_output=CHIP_HISTONE, width=2001, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": 0.09239578,
+        "quantile_score": 0.95348793
+      }
+    ],
+    "top_negative_scores": [
+      {
+        "ontology_curie": "CL:0000136",
+        "variant_scorer": "CenterMaskScorer(requested_output=CHIP_HISTONE, width=2001, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": -0.028151035,
+        "quantile_score": -0.93631864
+      },
+      {
+        "ontology_curie": "CL:0000134",
+        "variant_scorer": "CenterMaskScorer(requested_output=CHIP_HISTONE, width=2001, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": -0.022902966,
+        "quantile_score": -0.91309357
+      },
+      {
+        "ontology_curie": "EFO:0005726",
+        "variant_scorer": "CenterMaskScorer(requested_output=DNASE, width=501, aggregation_type=DIFF_LOG2_SUM)",
+        "raw_score": -0.021893442,
+        "quantile_score": -0.5843792
+      }
+    ]
+  }
+]
