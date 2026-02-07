@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlphaGenome Interactive Learning Report</title>
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --primary-dark: #1557b0;
+            --primary-light: #e8f0fe;
+            --secondary: #34a853;
+            --secondary-light: #e6f4ea;
+            --accent: #ea4335;
+            --accent-light: #fce8e6;
+            --warning: #f9ab00;
+            --warning-light: #fef7e0;
+            --bg: #f8f9fa;
+            --card: #ffffff;
+            --text: #202124;
+            --text-secondary: #5f6368;
+            --border: #dadce0;
+            --code-bg: #f1f3f4;
+            --shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 2px 6px 2px rgba(60,64,67,0.15);
+            --shadow-hover: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+            --radius: 8px;
+            --radius-lg: 16px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 48px 20px 40px;
+            text-align: center;
+            position: relative;
+        }
+        .header h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 8px; }
+        .header p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 12px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+        }
+        .progress-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; gap: 12px; }
+        .progress-label { font-size: 0.85rem; color: var(--text-secondary); white-space: nowrap; font-weight: 500; }
+        .progress-bar { flex: 1; height: 8px; background: #e0e0e0; border-radius: 4px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--secondary)); border-radius: 4px; transition: width 0.5s ease; width: 0%; }
+        .progress-text { font-size: 0.85rem; color: var(--text-secondary); font-weight: 600; min-width: 40px; text-align: right; }
+
+        /* Module */
+        .module {
+            background: var(--card);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            margin: 24px auto;
+            max-width: 960px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .module:hover { box-shadow: var(--shadow-hover); }
+        .module-header {
+            padding: 20px 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            user-select: none;
+            border-bottom: 1px solid transparent;
+            transition: background 0.15s;
+        }
+        .module-header:hover { background: var(--primary-light); }
+        .module-header.active { border-bottom-color: var(--border); }
+        .module-number {
+            width: 40px; height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .module-number.completed { background: var(--secondary); }
+        .module-title { flex: 1; }
+        .module-title h2 { font-size: 1.15rem; font-weight: 600; }
+        .module-title .subtitle { font-size: 0.85rem; color: var(--text-secondary); }
+        .module-toggle {
+            width: 28px; height: 28px;
+            display: flex; align-items: center; justify-content: center;
+            transition: transform 0.3s;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+        .module-toggle.open { transform: rotate(180deg); }
+        .module-body { display: none; padding: 24px; }
+        .module-body.visible { display: block; }
+
+        /* Learning Objectives */
+        .objectives {
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 16px 20px;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            margin-bottom: 24px;
+        }
+        .objectives h3 { font-size: 0.95rem; color: var(--primary); margin-bottom: 8px; }
+        .objectives ul { padding-left: 20px; font-size: 0.9rem; }
+        .objectives li { margin-bottom: 4px; }
+
+        /* Info Box */
+        .info-box {
+            padding: 16px 20px;
+            border-radius: var(--radius);
+            margin: 16px 0;
+            font-size: 0.95rem;
+        }
+        .info-box.tip { background: var(--secondary-light); border-left: 4px solid var(--secondary); }
+        .info-box.warning { background: var(--warning-light); border-left: 4px solid var(--warning); }
+        .info-box.important { background: var(--accent-light); border-left: 4px solid var(--accent); }
+        .info-box strong { display: block; margin-bottom: 4px; }
+
+        /* Concept Card */
+        .concept-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin: 16px 0;
+        }
+        .concept-card h4 { color: var(--primary); margin-bottom: 8px; font-size: 1rem; }
+
+        /* Code Block */
+        .code-wrapper { position: relative; margin: 16px 0; }
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 16px 20px;
+            border-radius: var(--radius);
+            overflow-x: auto;
+            font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            white-space: pre;
+            tab-size: 4;
+        }
+        .code-block .kw { color: #569cd6; }
+        .code-block .fn { color: #dcdcaa; }
+        .code-block .str { color: #ce9178; }
+        .code-block .num { color: #b5cea8; }
+        .code-block .cmt { color: #6a9955; }
+        .code-block .op { color: #d4d4d4; }
+        .code-block .cls { color: #4ec9b0; }
+        .code-block .param { color: #9cdcfe; }
+        .copy-btn {
+            position: absolute;
+            top: 8px; right: 8px;
+            background: rgba(255,255,255,0.15);
+            color: #ccc;
+            border: none;
+            padding: 4px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-family: inherit;
+        }
+        .copy-btn:hover { background: rgba(255,255,255,0.25); }
+
+        /* Tables */
+        .table-wrapper { overflow-x: auto; margin: 16px 0; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 10px 14px;
+            text-align: left;
+            font-weight: 600;
+        }
+        td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+        tr:hover td { background: var(--primary-light); }
+        tr:last-child td { border-bottom: none; }
+
+        /* Tabs */
+        .tabs { margin: 16px 0; }
+        .tab-buttons { display: flex; gap: 0; border-bottom: 2px solid var(--border); }
+        .tab-btn {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.2s;
+        }
+        .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
+        .tab-btn:hover { color: var(--primary); background: var(--primary-light); }
+        .tab-content { display: none; padding: 20px 0; }
+        .tab-content.active { display: block; }
+
+        /* Quiz */
+        .quiz {
+            background: #f0f4ff;
+            border: 1px solid #c2d4f8;
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-top: 24px;
+        }
+        .quiz h3 { color: var(--primary); margin-bottom: 16px; font-size: 1rem; }
+        .quiz-question { margin-bottom: 16px; }
+        .quiz-question p { font-weight: 500; margin-bottom: 8px; font-size: 0.95rem; }
+        .quiz-options label {
+            display: block;
+            padding: 8px 12px;
+            margin: 4px 0;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.15s;
+        }
+        .quiz-options label:hover { background: rgba(26,115,232,0.08); }
+        .quiz-options input[type="radio"] { margin-right: 8px; }
+        .quiz-answer {
+            display: none;
+            margin-top: 8px;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+        .quiz-answer.correct { background: var(--secondary-light); border-left: 3px solid var(--secondary); }
+        .quiz-answer.wrong { background: var(--accent-light); border-left: 3px solid var(--accent); }
+        .quiz-submit {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+        .quiz-submit:hover { background: var(--primary-dark); }
+        .quiz-score { margin-top: 12px; font-weight: 600; font-size: 0.95rem; }
+
+        /* Image */
+        .img-container {
+            margin: 16px 0;
+            text-align: center;
+        }
+        .img-container img {
+            max-width: 100%;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+        .img-caption {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* Section headers inside module */
+        .module-body h3 {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin: 24px 0 12px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--primary-light);
+        }
+        .module-body h3:first-child { margin-top: 0; }
+        .module-body p { margin-bottom: 12px; font-size: 0.95rem; }
+        .module-body ul, .module-body ol { padding-left: 24px; margin-bottom: 12px; font-size: 0.95rem; }
+        .module-body li { margin-bottom: 4px; }
+
+        /* Stat Grid */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .stat-item {
+            background: var(--primary-light);
+            padding: 16px;
+            border-radius: var(--radius);
+            text-align: center;
+        }
+        .stat-value { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .stat-label { font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px; }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 32px 20px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* Print */
+        @media print {
+            .progress-container { display: none; }
+            .module-body { display: block !important; }
+            .module { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+            .header { padding: 20px; }
+            .copy-btn { display: none; }
+            body { font-size: 12px; }
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .header h1 { font-size: 1.5rem; }
+            .header { padding: 32px 16px; }
+            .module-header { padding: 16px; gap: 12px; }
+            .module-body { padding: 16px; }
+            .tab-btn { padding: 8px 12px; font-size: 0.8rem; }
+            .stat-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+
+        .tag {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>AlphaGenome Interactive Learning Report</h1>
+    <p>Google DeepMind의 게노믹스 AI 모델을 활용한 체계적 학습 가이드</p>
+    <span class="badge">11 Modules &middot; Interactive Quizzes &middot; Hands-on Code</span>
+</div>
+
+<div class="progress-container">
+    <div class="progress-inner">
+        <span class="progress-label">학습 진행률</span>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <span class="progress-text" id="progressText">0/11</span>
+    </div>
+</div>
+
+<div class="container">
+
+<!-- ==================== MODULE 1 ==================== -->
+<div class="module" id="module1">
+    <div class="module-header" onclick="toggleModule(1)">
+        <div class="module-number" id="moduleNum1">1</div>
+        <div class="module-title">
+            <h2>AlphaGenome 소개</h2>
+            <div class="subtitle">모델 아키텍처와 핵심 개념</div>
+        </div>
+        <div class="module-toggle" id="moduleToggle1">&#9660;</div>
+    </div>
+    <div class="module-body" id="moduleBody1">
+        <div class="objectives">
+            <h3>학습 목표</h3>
+            <ul>
+                <li>AlphaGenome이 무엇이며 어떤 문제를 해결하는지 이해한다</li>
+                <li>1Mbp 입력 윈도우와 11가지 OutputType을 설명할 수 있다</li>
+                <li>API 기반 추론 방식의 장점을 이해한다</li>
+            </ul>
+        </div>
+
+        <h3>AlphaGenome이란?</h3>
+        <p>AlphaGenome은 Google DeepMind가 개발한 <strong>대규모 게노믹스 AI 모델</strong>입니다. DNA 서열을 입력받아 유전자 발현, 크로마틴 접근성, 전사인자 결합, 3D 염색체 구조 등 다양한 게노믹스 특성을 예측합니다.</p>
+
+        <div class="concept-card">
+            <h4>핵심 특징</h4>
+            <ul>
+                <li><strong>입력 크기:</strong> 최대 1,048,576 bp (1 Mbp) DNA 서열</li>
+                <li><strong>출력 유형:</strong> 11가지 OutputType으로 다양한 게노믹스 특성 예측</li>
+                <li><strong>종(Species):</strong> Human (GRCh38) 및 Mouse (GRCm39) 지원</li>
+                <li><strong>API 기반:</strong> Google Cloud 인프라에서 추론 수행 (로컬 GPU 불필요)</li>
+            </ul>
+        </div>
+
+        <h3>11가지 OutputType</h3>
+        <div class="table-wrapper">
+            <table>
+                <tr><th>OutputType</th><th>설명</th><th>Human Tracks</th><th>Mouse Tracks</th></tr>
+                <tr><td>ATAC</td><td>ATAC-seq 크로마틴 접근성</td><td>167</td><td>18</td></tr>
+                <tr><td>CAGE</td><td>전사 시작점 (TSS) 활성</td><td>546</td><td>188</td></tr>
+                <tr><td>DNASE</td><td>DNase-seq 크로마틴 접근성</td><td>305</td><td>67</td></tr>
+                <tr><td>RNA_SEQ</td><td>유전자 발현 (RNA-seq)</td><td>667</td><td>173</td></tr>
+                <tr><td>CHIP_HISTONE</td><td>히스톤 변형 ChIP-seq</td><td>1,116</td><td>183</td></tr>
+                <tr><td>CHIP_TF</td><td>전사인자 ChIP-seq</td><td>1,617</td><td>127</td></tr>
+                <tr><td>SPLICE_SITES</td><td>스플라이싱 부위 확률</td><td>4</td><td>4</td></tr>
+                <tr><td>SPLICE_SITE_USAGE</td><td>조직별 스플라이싱 사용빈도</td><td>734</td><td>180</td></tr>
+                <tr><td>SPLICE_JUNCTIONS</td><td>스플라이싱 접합 예측</td><td>367</td><td>90</td></tr>
+                <tr><td>CONTACT_MAPS</td><td>3D 염색체 접촉 지도</td><td>28</td><td>8</td></tr>
+                <tr><td>PROCAP</td><td>초기 전사 (PRO-cap)</td><td>12</td><td>-</td></tr>
+            </table>
+        </div>
+
+        <div class="stat-grid">
+            <div class="stat-item">
+                <div class="stat-value">1 Mbp</div>
+                <div class="stat-label">최대 입력 길이</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">11</div>
+                <div class="stat-label">OutputTypes</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">5,563</div>
+                <div class="stat-label">Human Tracks</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">1,038</div>
+                <div class="stat-label">Mouse Tracks</div>
+            </div>
+        </div>
+
+        <h3>API 기반 추론</h3>
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <div class="code-block"><span class="cmt"># AlphaGenome API 초기화</span>
+<span class="kw">import</span> alphagenome
+<span class="kw">from</span> alphagenome <span class="kw">import</span> genome
+
+<span class="cmt"># API 클라이언트 생성</span>
+client = alphagenome.<span class="fn">Client</span>()
+
+<span class="cmt"># 구간 정의 (1 Mbp 이내)</span>
+interval = genome.<span class="cls">Interval</span>(
+    <span class="param">chromosome</span>=<span class="str">'chr19'</span>,
+    <span class="param">start</span>=<span class="num">40991281</span>,
+    <span class="param">end</span>=<span class="num">41018398</span>,
+    <span class="param">strand</span>=<span class="str">'+'</span>
+)
+
+<span class="cmt"># 예측 수행</span>
+output = client.<span class="fn">predict_interval</span>(interval, output_types=[<span class="str">'RNA_SEQ'</span>])</div>
+        </div>
+
+        <div class="info-box tip">
+            <strong>Tip: API 사용의 장점</strong>
+            로컬 GPU 없이도 대규모 딥러닝 모델을 활용할 수 있으며, 항상 최신 모델 버전이 적용됩니다.
+        </div>
+
+        <div class="quiz" id="quiz1">
+            <h3>Module 1 Quiz</h3>
+            <div class="quiz-question">
+                <p>Q1. AlphaGenome의 최대 입력 DNA 서열 길이는?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q1_1" value="a"> 100 Kbp</label>
+                    <label><input type="radio" name="q1_1" value="b"> 512 Kbp</label>
+                    <label><input type="radio" name="q1_1" value="c"> 1 Mbp (1,048,576 bp)</label>
+                    <label><input type="radio" name="q1_1" value="d"> 10 Mbp</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>Q2. AlphaGenome이 지원하는 OutputType 개수는?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q1_2" value="a"> 5개</label>
+                    <label><input type="radio" name="q1_2" value="b"> 8개</label>
+                    <label><input type="radio" name="q1_2" value="c"> 11개</label>
+                    <label><input type="radio" name="q1_2" value="d"> 15개</label>
+                </div>
+            </div>
+            <button class="quiz-submit" onclick="checkQuiz(1, {q1_1:'c', q1_2:'c'})">정답 확인</button>
+            <div class="quiz-score" id="quizScore1"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== MODULE 2 ==================== -->
+<div class="module" id="module2">
+    <div class="module-header" onclick="toggleModule(2)">
+        <div class="module-number" id="moduleNum2">2</div>
+        <div class="module-title">
+            <h2>Gene Expression (RNA_SEQ)</h2>
+            <div class="subtitle">유전자 발현 예측과 가닥 특이성</div>
+        </div>
+        <div class="module-toggle" id="moduleToggle2">&#9660;</div>
+    </div>
+    <div class="module-body" id="moduleBody2">
+        <div class="objectives">
+            <h3>학습 목표</h3>
+            <ul>
+                <li>RNA_SEQ OutputType의 가닥 특이적(strand-specific) 예측을 이해한다</li>
+                <li>667개 Human 트랙의 의미를 설명할 수 있다</li>
+                <li>CYP2B6 유전자를 이용한 Quick Start 예제를 수행할 수 있다</li>
+            </ul>
+        </div>
+
+        <h3>RNA_SEQ OutputType</h3>
+        <p>RNA_SEQ는 AlphaGenome의 핵심 OutputType 중 하나로, <strong>유전자 발현 수준</strong>을 예측합니다. 가장 중요한 특징은 <strong>가닥 특이적(strand-specific)</strong> 예측을 수행한다는 점입니다.</p>
+
+        <div class="two-col">
+            <div class="concept-card">
+                <h4>양의 가닥 (+ strand)</h4>
+                <p>센스 가닥의 전사 활성을 예측합니다. 양의 가닥에서 발현되는 유전자의 신호를 포착합니다.</p>
+            </div>
+            <div class="concept-card">
+                <h4>음의 가닥 (- strand)</h4>
+                <p>안티센스 가닥의 전사 활성을 예측합니다. 반대 방향으로 전사되는 유전자를 식별합니다.</p>
+            </div>
+        </div>
+
+        <div class="stat-grid">
+            <div class="stat-item">
+                <div class="stat-value">667</div>
+                <div class="stat-label">Human Tracks</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">173</div>
+                <div class="stat-label">Mouse Tracks</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">29</div>
+                <div class="stat-label">CYP2B6 Transcripts</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">10</div>
+                <div class="stat-label">Nearby Genes</div>
+            </div>
+        </div>
+
+        <h3>Quick Start: CYP2B6 유전자</h3>
+        <p>CYP2B6는 약물 대사에 관여하는 중요한 효소를 코딩하는 유전자로, chr19에 위치합니다. 이 예제에서는 CYP2B6 영역의 RNA_SEQ 예측을 수행합니다.</p>
+
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <div class="code-block"><span class="cmt"># CYP2B6 영역 RNA_SEQ 예측</span>
+<span class="kw">import</span> alphagenome
+<span class="kw">from</span> alphagenome <span class="kw">import</span> genome
+
+client = alphagenome.<span class="fn">Client</span>()
+
+<span class="cmt"># CYP2B6 유전자 영역 (chr19)</span>
+interval = genome.<span class="cls">Interval</span>(
+    <span class="param">chromosome</span>=<span class="str">'chr19'</span>,
+    <span class="param">start</span>=<span class="num">40991281</span>,
+    <span class="param">end</span>=<span class="num">41018398</span>,
+    <span class="param">strand</span>=<span class="str">'+'</span>
+)
+
+<span class="cmt"># RNA_SEQ 예측 수행</span>
+output = client.<span class="fn">predict_interval</span>(
+    interval,
+    <span class="param">output_types</span>=[<span class="str">'RNA_SEQ'</span>]
+)
+
+<span class="cmt"># 결과: 29개 전사체, 10개 인접 유전자</span>
+print(f<span class="str">"예측 완료: {output}"</span>)</div>
+        </div>
+
+        <div class="img-container">
+            <img src="../results/quick_start/cyp2b6_rna_seq.png" alt="CYP2B6 RNA_SEQ prediction">
+            <div class="img-caption">CYP2B6 영역의 RNA_SEQ 예측 결과. 가닥별 발현 패턴이 명확히 구분됩니다.</div>
+        </div>
+
+        <div class="img-container">
+            <img src="../results/visualization_tour/01_rna_seq.png" alt="RNA_SEQ visualization tour">
+            <div class="img-caption">Visualization Tour: RNA_SEQ 트랙의 전체 뷰 (chr22 APOL4 영역)</div>
+        </div>
+
+        <div class="info-box tip">
+            <strong>Strand-specificity의 중요성</strong>
+            같은 게노믹 위치에서도 양의 가닥과 음의 가닥의 발현이 독립적으로 예측됩니다. 이는 antisense 전사체나 overlapping 유전자를 정확히 구분하는 데 필수적입니다.
+        </div>
+
+        <div class="quiz" id="quiz2">
+            <h3>Module 2 Quiz</h3>
+            <div class="quiz-question">
+                <p>Q1. RNA_SEQ의 가닥 특이적 예측이 중요한 이유는?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q2_1" value="a"> 계산 속도를 높이기 위해</label>
+                    <label><input type="radio" name="q2_1" value="b"> Antisense 전사체와 overlapping 유전자를 구분하기 위해</label>
+                    <label><input type="radio" name="q2_1" value="c"> 모델 크기를 줄이기 위해</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>Q2. Human RNA_SEQ 트랙 수는?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q2_2" value="a"> 305</label>
+                    <label><input type="radio" name="q2_2" value="b"> 546</label>
+                    <label><input type="radio" name="q2_2" value="c"> 667</label>
+                </div>
+            </div>
+            <button class="quiz-submit" onclick="checkQuiz(2, {q2_1:'b', q2_2:'c'})">정답 확인</button>
+            <div class="quiz-score" id="quizScore2"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== MODULE 3 ==================== -->
+<div class="module" id="module3">
+    <div class="module-header" onclick="toggleModule(3)">
+        <div class="module-number" id="moduleNum3">3</div>
+        <div class="module-title">
+            <h2>Transcription Start Sites (CAGE)</h2>
+            <div class="subtitle">FANTOM 데이터 기반 프로모터 활성 예측</div>
+        </div>
+        <div class="module-toggle" id="moduleToggle3">&#9660;</div>
+    </div>
+    <div class="module-body" id="moduleBody3">
+        <div class="objectives">
+            <h3>학습 목표</h3>
+            <ul>
+                <li>CAGE 기술과 FANTOM 데이터의 의미를 이해한다</li>
+                <li>CAGE와 RNA_SEQ의 차이점을 설명할 수 있다</li>
+                <li>프로모터 활성 예측 코드를 작성할 수 있다</li>
+            </ul>
+        </div>
+
+        <h3>CAGE (Cap Analysis of Gene Expression)</h3>
+        <p>CAGE는 mRNA의 5' 캡 구조를 포착하여 <strong>전사 시작점(TSS)</strong>을 정밀하게 매핑하는 기술입니다. FANTOM 프로젝트에서 수백 종의 세포/조직에서 CAGE 데이터를 생산했으며, AlphaGenome은 이를 학습하여 TSS 활성을 예측합니다.</p>
+
+        <div class="concept-card">
+            <h4>CAGE vs RNA_SEQ 비교</h4>
+            <div class="table-wrapper">
+                <table>
+                    <tr><th>특성</th><th>CAGE</th><th>RNA_SEQ</th></tr>
+                    <tr><td>측정 대상</td><td>전사 시작점 (5' end)</td><td>전체 전사체</td></tr>
+                    <tr><td>해상도</td><td>단일 염기 수준</td><td>전체 유전자 영역</td></tr>
+                    <tr><td>용도</td><td>프로모터 활성, TSS 식별</td><td>유전자 발현량</td></tr>
+                    <tr><td>Human Tracks</td><td>546</td><td>667</td></tr>
+                    <tr><td>Mouse Tracks</td><td>188</td><td>173</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="stat-grid">
+            <div class="stat-item">
+                <div class="stat-value">546</div>
+                <div class="stat-label">Human CAGE Tracks</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">188</div>
+                <div class="stat-label">Mouse CAGE Tracks</div>
+            </div>
+        </div>
+
+        <h3>CAGE 예측 코드</h3>
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <div class="code-block"><span class="cmt"># CAGE 예측으로 프로모터 활성 확인</span>
+output = client.<span class="fn">predict_interval</span>(
+    interval,
+    <span class="param">output_types</span>=[<span class="str">'CAGE'</span>]
+)
+
+<span class="cmt"># TSS 위치에서 높은 CAGE 신호가 관찰됨</span>
+<span class="cmt"># 가닥 특이적: + strand와 - strand 각각 예측</span></div>
+        </div>
+
+        <div class="img-container">
+            <img src="../results/visualization_tour/02_cage.png" alt="CAGE visualization">
+            <div class="img-caption">CAGE 트랙 시각화: 전사 시작점(TSS)에서 뾰족한 피크가 관찰됩니다.</div>
+        </div>
+
+        <div class="info-box tip">
+            <strong>CAGE의 강점</strong>
+            CAGE는 단일 염기 해상도로 TSS를 식별하므로, 대안적 프로모터(alternative promoter) 사용을 감지하는 데 특히 유용합니다.
+        </div>
+
+        <div class="quiz" id="quiz3">
+            <h3>Module 3 Quiz</h3>
+            <div class="quiz-question">
+                <p>Q1. CAGE가 주로 측정하는 것은?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q3_1" value="a"> 전체 유전자 발현량</label>
+                    <label><input type="radio" name="q3_1" value="b"> 전사 시작점(TSS) 활성</label>
+                    <label><input type="radio" name="q3_1" value="c"> 스플라이싱 패턴</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>Q2. CAGE와 RNA_SEQ의 핵심 차이는?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q3_2" value="a"> CAGE는 Mouse만 지원한다</label>
+                    <label><input type="radio" name="q3_2" value="b"> CAGE는 5' end를 포착하여 단일 염기 해상도로 TSS를 매핑한다</label>
+                    <label><input type="radio" name="q3_2" value="c"> RNA_SEQ가 더 적은 트랙을 가진다</label>
+                </div>
+            </div>
+            <button class="quiz-submit" onclick="checkQuiz(3, {q3_1:'b', q3_2:'b'})">정답 확인</button>
+            <div class="quiz-score" id="quizScore3"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== MODULE 4 ==================== -->
+<div class="module" id="module4">
+    <div class="module-header" onclick="toggleModule(4)">
+        <div class="module-number" id="moduleNum4">4</div>
+        <div class="module-title">
+            <h2>Chromatin Accessibility (DNASE + ATAC)</h2>
+            <div class="subtitle">열린 크로마틴 영역과 조절 요소 탐지</div>
+        </div>
+        <div class="module-toggle" id="moduleToggle4">&#9660;</div>
+    </div>
+    <div class="module-body" id="moduleBody4">
+        <div class="objectives">
+            <h3>학습 목표</h3>
+            <ul>
+                <li>크로마틴 접근성의 생물학적 의미를 이해한다</li>
+                <li>DNASE와 ATAC의 차이점과 공통점을 설명할 수 있다</li>
+                <li>열린 크로마틴이 유전자 조절에 미치는 영향을 이해한다</li>
+            </ul>
+        </div>
+
+        <h3>크로마틴 접근성이란?</h3>
+        <p>크로마틴 접근성(Chromatin Accessibility)은 DNA가 히스톤 단백질로부터 얼마나 풀려있는지를 나타냅니다. <strong>열린 크로마틴 영역</strong>은 전사인자가 결합할 수 있는 조절 요소(프로모터, 인핸서 등)를 나타내며, 유전자 발현 조절의 핵심입니다.</p>
+
+        <div class="two-col">
+            <div class="concept-card">
+                <h4>DNase-seq (DNASE)</h4>
+                <ul>
+                    <li>DNase I 효소로 열린 크로마틴 절단</li>
+                    <li><strong>305</strong>개 Human 트랙</li>
+                    <li><strong>67</strong>개 Mouse 트랙</li>
+                    <li>ENCODE 프로젝트의 주요 데이터</li>
+                    <li>광범위한 세포 유형 커버리지</li>
+                </ul>
+            </div>
+            <div class="concept-card">
+                <h4>ATAC-seq (ATAC)</h4>
+                <ul>
+                    <li>Tn5 transposase로 열린 크로마틴 절단</li>
+                    <li><strong>167</strong>개 Human 트랙</li>
+                    <li><strong>18</strong>개 Mouse 트랙</li>
+                    <li>더 적은 세포 수로 수행 가능</li>
+                    <li>single-cell 응용 활발</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>시각화</h3>
+        <div class="img-container">
+            <img src="../results/visualization_tour/03_dnase.png" alt="DNASE visualization">
+            <div class="img-caption">DNase-seq 크로마틴 접근성 프로파일: 프로모터와 인핸서 영역에서 강한 신호</div>
+        </div>
+        <div class="img-container">
+            <img src="../results/visualization_tour/04_atac.png" alt="ATAC visualization">
+            <div class="img-caption">ATAC-seq 크로마틴 접근성 프로파일: DNASE와 유사한 패턴을 보이며, nucleosome-free region이 강조됩니다.</div>
+        </div>
+
+        <div class="info-box important">
+            <strong>DNASE vs ATAC: 상호 보완적</strong>
+            두 방법 모두 열린 크로마틴을 측정하지만, DNase-seq는 더 많은 세포 유형(305 vs 167 트랙)에서 데이터가 있고, ATAC-seq는 더 낮은 세포 수에서도 작동합니다. 두 데이터를 함께 사용하면 더 포괄적인 조절 요소 지도를 얻을 수 있습니다.
+        </div>
+
+        <div class="quiz" id="quiz4">
+            <h3>Module 4 Quiz</h3>
+            <div class="quiz-question">
+                <p>Q1. 열린 크로마틴 영역이 중요한 이유는?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q4_1" value="a"> DNA 복제를 방지하기 때문</label>
+                    <label><input type="radio" name="q4_1" value="b"> 전사인자가 결합할 수 있는 조절 요소를 나타내기 때문</label>
+                    <label><input type="radio" name="q4_1" value="c"> 돌연변이율을 높이기 때문</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>Q2. DNASE와 ATAC의 Human 트랙 수 조합은?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q4_2" value="a"> DNASE 167, ATAC 305</label>
+                    <label><input type="radio" name="q4_2" value="b"> DNASE 305, ATAC 167</label>
+                    <label><input type="radio" name="q4_2" value="c"> DNASE 546, ATAC 667</label>
+                </div>
+            </div>
+            <button class="quiz-submit" onclick="checkQuiz(4, {q4_1:'b', q4_2:'b'})">정답 확인</button>
+            <div class="quiz-score" id="quizScore4"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== MODULE 5 ==================== -->
+<div class="module" id="module5">
+    <div class="module-header" onclick="toggleModule(5)">
+        <div class="module-number" id="moduleNum5">5</div>
+        <div class="module-title">
+            <h2>Histone Modifications (CHIP_HISTONE)</h2>
+            <div class="subtitle">히스톤 변형과 에피게놈 코드</div>
+        </div>
+        <div class="module-toggle" id="moduleToggle5">&#9660;</div>
+    </div>
+    <div class="module-body" id="moduleBody5">
+        <div class="objectives">
+            <h3>학습 목표</h3>
+            <ul>
+                <li>주요 히스톤 변형의 생물학적 의미를 이해한다</li>
+                <li>1,116개 Human 트랙의 구성을 설명할 수 있다</li>
+                <li>히스톤 마크를 이용한 게놈 주석(annotation) 원리를 이해한다</li>
+            </ul>
+        </div>
+
+        <h3>히스톤 변형이란?</h3>
+        <p>히스톤 변형(Histone Modification)은 히스톤 단백질의 꼬리에 화학적 변형(메틸화, 아세틸화 등)이 일어나는 것입니다. 이러한 변형은 <strong>에피게놈 코드</strong>로 작용하여 유전자 발현을 조절합니다.</p>
+
+        <h3>주요 히스톤 마크</h3>
+        <div class="table-wrapper">
+            <table>
+                <tr><th>히스톤 마크</th><th>위치/기능</th><th>생물학적 의미</th></tr>
+                <tr><td style="color:#e53935;font-weight:600">H3K4me3</td><td>활성 프로모터</td><td>전사 시작점 표지, 유전자 활성화</td></tr>
+                <tr><td style="color:#ff9800;font-weight:600">H3K27ac</td><td>활성 인핸서/프로모터</td><td>활성 조절 요소 표지</td></tr>
+                <tr><td style="color:#4caf50;font-weight:600">H3K36me3</td><td>유전자 본체(gene body)</td><td>활발한 전사 표지</td></tr>
+                <tr><td style="color:#9c27b0;font-weight:600">H3K27me3</td><td>억제된 영역</td><td>Polycomb 억제, 발생 유전자 조절</td></tr>
+                <tr><td style="color:#607d8b;font-weight:600">H3K9me3</td><td>이질 크로마틴</td><td>반복 서열 억제, 구조적 이질크로마틴</td></tr>
+                <tr><td style="color:#2196f3;font-weight:600">H3K4me1</td><td>인핸서 (활성/준비)</td><td>인핸서 표지, H3K27ac와 함께 활성 여부 판단</td></tr>
+            </table>
+        </div>
+
+        <div class="stat-grid">
+            <div class="stat-item">
+                <div class="stat-value">1,116</div>
+                <div class="stat-label">Human Tracks</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">183</div>
+                <div class="stat-label">Mouse Tracks</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">6+</div>
+                <div class="stat-label">Histone Marks</div>
+            </div>
+        </div>
+
+        <div class="img-container">
+            <img src="../results/visualization_tour/05_chip_histone.png" alt="CHIP_HISTONE visualization">
+            <div class="img-caption">히스톤 변형 ChIP-seq 시각화: 각 히스톤 마크가 색상으로 구분되어 프로모터, 인핸서, 유전자 본체 영역이 명확히 드러납니다.</div>
+        </div>
+
+        <div class="concept-card">
+            <h4>에피게놈 코드 읽기</h4>
+            <p>여러 히스톤 마크를 조합하면 게놈의 기능적 상태를 추론할 수 있습니다:</p>
+            <ul>
+                <li><strong>H3K4me3 + H3K27ac</strong> = 활성 프로모터</li>
+                <li><strong>H3K4me1 + H3K27ac</strong> = 활성 인핸서</li>
+                <li><strong>H3K4me1 + H3K27me3</strong> = 준비된(poised) 인핸서</li>
+                <li><strong>H3K36me3</strong> = 전사 중인 유전자 본체</li>
+                <li><strong>H3K9me3</strong> = 이질 크로마틴 (억제)</li>
+            </ul>
+        </div>
+
+        <div class="quiz" id="quiz5">
+            <h3>Module 5 Quiz</h3>
+            <div class="quiz-question">
+                <p>Q1. 활성 프로모터를 나타내는 히스톤 마크는?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q5_1" value="a"> H3K27me3</label>
+                    <label><input type="radio" name="q5_1" value="b"> H3K4me3</label>
+                    <label><input type="radio" name="q5_1" value="c"> H3K9me3</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>Q2. CHIP_HISTONE의 Human 트랙 수는?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q5_2" value="a"> 546</label>
+                    <label><input type="radio" name="q5_2" value="b"> 667</label>
+                    <label><input type="radio" name="q5_2" value="c"> 1,116</label>
+                </div>
+            </div>
+            <button class="quiz-submit" onclick="checkQuiz(5, {q5_1:'b', q5_2:'c'})">정답 확인</button>
+            <div class="quiz-score" id="quizScore5"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== MODULE 6 ==================== -->
+<div class="module" id="module6">
+    <div class="module-header" onclick="toggleModule(6)">
+        <div class="module-number" id="moduleNum6">6</div>
+        <div class="module-title">
+            <h2>Transcription Factor Binding (CHIP_TF)</h2>
+            <div class="subtitle">전사인자 결합 예측과 세포주 분석</div>
+        </div>
+        <div class="module-toggle" id="moduleToggle6">&#9660;</div>
+    </div>
+    <div class="module-body" id="moduleBody6">
+        <div class="objectives">
+            <h3>학습 목표</h3>
+            <ul>
+                <li>CHIP_TF가 가장 많은 트랙(1,617)을 보유한 이유를 이해한다</li>
+                <li>K562와 HepG2 세포주의 TF 결합 차이를 설명할 수 있다</li>
+                <li>CTCF-RAD21 공동 위치화(co-localization)의 의미를 이해한다</li>
+            </ul>
+        </div>
+
+        <h3>전사인자 결합 예측</h3>
+        <p>CHIP_TF는 AlphaGenome의 OutputType 중 <strong>가장 많은 트랙(1,617)</strong>을 보유합니다. 이는 수백 종의 전사인자(TF)가 다양한 세포주에서 측정되었기 때문입니다.</p>
+
+        <div class="stat-grid">
+            <div class="stat-item">
+                <div class="stat-value">1,617</div>
+                <div class="stat-label">Human Tracks</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">127</div>
+                <div class="stat-label">Mouse Tracks</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">845</div>
+                <div class="stat-label">K562 + HepG2 Tracks</div>
+            </div>
+        </div>
+
+        <h3>세포주별 TF 분석</h3>
+        <div class="two-col">
+            <div class="concept-card">
+                <h4>K562 (EFO:0002067)</h4>
+                <p>만성 골수성 백혈병 세포주. 약 269개 전사인자의 결합 데이터가 있습니다. 혈액 계통 특이적 TF 연구에 핵심적입니다.</p>
+            </div>
+            <div class="concept-card">
+                <h4>HepG2 (EFO:0001187)</h4>
+                <p>간세포암 세포주. 약 501개 전사인자의 결합 데이터가 있습니다. 간 특이적 유전자 조절 연구의 중심 모델입니다.</p>
+            </div>
+        </div>
+
+        <h3>CTCF-RAD21 공동 위치화</h3>
+        <p>CTCF와 RAD21(cohesin 구성요소)은 게놈 전체에서 높은 빈도로 공동 위치화됩니다. 이 패턴은 <strong>TAD(Topologically Associating Domain) 경계</strong>를 형성하며, 3D 염색체 구조를 결정하는 핵심 요소입니다.</p>
+
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <div class="code-block"><span class="cmt"># CHIP_TF 예측: K562 세포주의 CTCF 결합</span>
+output = client.<span class="fn">predict_interval</span>(
+    interval,
+    <span class="param">output_types</span>=[<span class="str">'CHIP_TF'</span>]
+)
+
+<span class="cmt"># K562 CTCF 트랙 필터링</span>
+<span class="cmt"># ontology_curie: EFO:0002067 (K562)</span>
+<span class="cmt"># CTCF와 RAD21의 co-localization 패턴 확인</span></div>
+        </div>
+
+        <div class="img-container">
+            <img src="../results/chip_tf_analysis/chip_tf_k562_ctcf.png" alt="K562 CTCF">
+            <div class="img-caption">K562 세포주에서의 CTCF 결합 패턴</div>
+        </div>
+        <div class="img-container">
+            <img src="../results/chip_tf_analysis/chip_tf_hepg2_ctcf.png" alt="HepG2 CTCF">
+            <div class="img-caption">HepG2 세포주에서의 CTCF 결합 패턴</div>
+        </div>
+        <div class="img-container">
+            <img src="../results/chip_tf_analysis/chip_tf_ctcf_rad21_coloc.png" alt="CTCF-RAD21 co-localization">
+            <div class="img-caption">CTCF-RAD21 공동 위치화: TAD 경계를 형성하는 핵심 복합체</div>
+        </div>
+        <div class="img-container">
+            <img src="../results/chip_tf_analysis/chip_tf_multi_tf.png" alt="Multi-TF analysis">
+            <div class="img-caption">복수 전사인자 결합 패턴 비교 분석</div>
+        </div>
+
+        <div class="quiz" id="quiz6">
+            <h3>Module 6 Quiz</h3>
+            <div class="quiz-question">
+                <p>Q1. CHIP_TF가 가장 많은 트랙을 가진 이유는?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q6_1" value="a"> 트랙당 해상도가 낮기 때문</label>
+                    <label><input type="radio" name="q6_1" value="b"> 수백 종의 TF가 다양한 세포주에서 측정되었기 때문</label>
+                    <label><input type="radio" name="q6_1" value="c"> 모든 세포에 같은 TF가 결합하기 때문</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>Q2. CTCF-RAD21 공동 위치화의 생물학적 의미는?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q6_2" value="a"> 유전자 발현 증가</label>
+                    <label><input type="radio" name="q6_2" value="b"> TAD 경계 형성과 3D 염색체 구조 결정</label>
+                    <label><input type="radio" name="q6_2" value="c"> DNA 복제 시작점 표지</label>
+                </div>
+            </div>
+            <button class="quiz-submit" onclick="checkQuiz(6, {q6_1:'b', q6_2:'b'})">정답 확인</button>
+            <div class="quiz-score" id="quizScore6"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== MODULE 7 ==================== -->
+<div class="module" id="module7">
+    <div class="module-header" onclick="toggleModule(7)">
+        <div class="module-number" id="moduleNum7">7</div>
+        <div class="module-title">
+            <h2>Splicing Analysis</h2>
+            <div class="subtitle">SPLICE_SITES, SPLICE_SITE_USAGE, SPLICE_JUNCTIONS</div>
+        </div>
+        <div class="module-toggle" id="moduleToggle7">&#9660;</div>
+    </div>
+    <div class="module-body" id="moduleBody7">
+        <div class="objectives">
+            <h3>학습 목표</h3>
+            <ul>
+                <li>3가지 스플라이싱 OutputType의 차이점을 명확히 구분한다</li>
+                <li>조직 비의존적 vs 조직 특이적 스플라이싱 예측을 이해한다</li>
+                <li>변이가 스플라이싱에 미치는 효과를 분석할 수 있다</li>
+            </ul>
+        </div>
+
+        <h3>3가지 스플라이싱 OutputType</h3>
+        <p>AlphaGenome은 스플라이싱을 3가지 관점에서 예측합니다. 이는 스플라이싱의 다층적 특성을 반영합니다.</p>
+
+        <div class="tabs">
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="switchTab('splice', 'sites')">SPLICE_SITES</button>
+                <button class="tab-btn" onclick="switchTab('splice', 'usage')">SPLICE_SITE_USAGE</button>
+                <button class="tab-btn" onclick="switchTab('splice', 'junctions')">SPLICE_JUNCTIONS</button>
+            </div>
+            <div class="tab-content active" id="splice-sites">
+                <h4>SPLICE_SITES (4 tracks)</h4>
+                <p><strong>조직 비의존적(tissue-agnostic)</strong> 스플라이싱 부위 확률을 예측합니다. 4개 트랙은 다음과 같습니다:</p>
+                <ul>
+                    <li><strong>Donor (+)</strong>: 양의 가닥 5' 스플라이싱 부위(GT) 확률</li>
+                    <li><strong>Donor (-)</strong>: 음의 가닥 5' 스플라이싱 부위 확률</li>
+                    <li><strong>Acceptor (+)</strong>: 양의 가닥 3' 스플라이싱 부위(AG) 확률</li>
+                    <li><strong>Acceptor (-)</strong>: 음의 가닥 3' 스플라이싱 부위 확률</li>
+                </ul>
+                <div class="info-box tip">
+                    <strong>핵심 포인트</strong>
+                    SPLICE_SITES는 서열 자체만으로 스플라이싱 부위를 예측하므로, 변이가 스플라이싱 부위를 파괴하거나 생성하는지 평가하는 데 직접적으로 사용됩니다.
+                </div>
+            </div>
+            <div class="tab-content" id="splice-usage">
+                <h4>SPLICE_SITE_USAGE (734 tracks)</h4>
+                <p><strong>조직 특이적</strong> 스플라이싱 사용 빈도를 예측합니다. 같은 스플라이싱 부위라도 조직에 따라 사용 빈도가 다릅니다.</p>
+                <div class="stat-grid">
+                    <div class="stat-item">
+                        <div class="stat-value">734</div>
+                        <div class="stat-label">Human Tracks</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">180</div>
+                        <div class="stat-label">Mouse Tracks</div>
+                    </div>
+                </div>
+                <p>예를 들어, 특정 엑손이 뇌 조직에서는 포함되지만 간 조직에서는 건너뛰어지는 대안적 스플라이싱(alternative splicing) 패턴을 예측할 수 있습니다.</p>
+            </div>
+            <div class="tab-content" id="splice-junctions">
+                <h4>SPLICE_JUNCTIONS (367 tracks)</h4>
+                <p>스플라이싱 접합(junction) 수준의 예측으로, <strong>sashimi plot</strong> 스타일의 시각화에 사용됩니다.</p>
+                <div class="stat-grid">
+                    <div class="stat-item">
+                        <div class="stat-value">367</div>
+                        <div class="stat-label">Human Tracks</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">90</div>
+                        <div class="stat-label">Mouse Tracks</div>
+                    </div>
+                </div>
+                <p>접합 읽기(junction reads)를 예측하여, 어떤 엑손-엑손 조합이 실제로 사용되는지 정량적으로 분석할 수 있습니다.</p>
+            </div>
+        </div>
+
+        <h3>변이 효과 분석</h3>
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <div class="code-block"><span class="cmt"># 스플라이싱 부위 변이 효과 분석</span>
+variant = genome.<span class="cls">Variant</span>(
+    <span class="param">chromosome</span>=<span class="str">'chr22'</span>,
+    <span class="param">position</span>=<span class="num">36201698</span>,
+    <span class="param">reference_bases</span>=<span class="str">'A'</span>,
+    <span class="param">alternate_bases</span>=<span class="str">'C'</span>
+)
+
+<span class="cmt"># SpliceSitesScorer로 스플라이싱 확률 변화 측정</span>
+variant_output = client.<span class="fn">predict_variant</span>(
+    variant,
+    <span class="param">output_types</span>=[<span class="str">'SPLICE_SITES'</span>]
+)</div>
+        </div>
+
+        <div class="img-container">
+            <img src="../results/visualization_tour/06_splice.png" alt="Splice visualization">
+            <div class="img-caption">스플라이싱 트랙 시각화: donor/acceptor 부위와 junction 패턴이 표시됩니다.</div>
+        </div>
+
+        <div class="quiz" id="quiz7">
+            <h3>Module 7 Quiz</h3>
+            <div class="quiz-question">
+                <p>Q1. SPLICE_SITES의 트랙 수가 4개인 이유는?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q7_1" value="a"> 4가지 조직만 측정되었기 때문</label>
+                    <label><input type="radio" name="q7_1" value="b"> Donor/Acceptor 각각 +/- 가닥 = 4 (조직 비의존적)</label>
+                    <label><input type="radio" name="q7_1" value="c"> 4가지 스플라이싱 유형이 있기 때문</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>Q2. 조직별 스플라이싱 패턴 차이를 분석하려면 어떤 OutputType을 사용해야 하는가?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q7_2" value="a"> SPLICE_SITES</label>
+                    <label><input type="radio" name="q7_2" value="b"> SPLICE_SITE_USAGE</label>
+                    <label><input type="radio" name="q7_2" value="c"> RNA_SEQ</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>Q3. SPLICE_JUNCTIONS의 Human 트랙 수는?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q7_3" value="a"> 4</label>
+                    <label><input type="radio" name="q7_3" value="b"> 367</label>
+                    <label><input type="radio" name="q7_3" value="c"> 734</label>
+                </div>
+            </div>
+            <button class="quiz-submit" onclick="checkQuiz(7, {q7_1:'b', q7_2:'b', q7_3:'b'})">정답 확인</button>
+            <div class="quiz-score" id="quizScore7"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== MODULE 8 ==================== -->
+<div class="module" id="module8">
+    <div class="module-header" onclick="toggleModule(8)">
+        <div class="module-number" id="moduleNum8">8</div>
+        <div class="module-title">
+            <h2>3D Chromatin (CONTACT_MAPS)</h2>
+            <div class="subtitle">3D 염색체 구조와 TAD 경계</div>
+        </div>
+        <div class="module-toggle" id="moduleToggle8">&#9660;</div>
+    </div>
+    <div class="module-body" id="moduleBody8">
+        <div class="objectives">
+            <h3>학습 목표</h3>
+            <ul>
+                <li>Hi-C 데이터와 contact map의 의미를 이해한다</li>
+                <li>TAD 경계의 생물학적 역할을 설명할 수 있다</li>
+                <li>2048bp 해상도의 특성을 이해한다</li>
+            </ul>
+        </div>
+
+        <h3>3D 염색체 구조</h3>
+        <p>DNA는 세포핵 안에서 복잡한 3차원 구조를 형성합니다. 선형 거리상 멀리 떨어진 영역이 3D 공간에서는 가까이 접촉할 수 있으며, 이러한 접촉은 유전자 발현 조절에 핵심적입니다. 예를 들어, 인핸서가 프로모터와 물리적으로 가까워지면 유전자가 활성화됩니다.</p>
+
+        <div class="stat-grid">
+            <div class="stat-item">
+                <div class="stat-value">28</div>
+                <div class="stat-label">Human Tracks</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">8</div>
+                <div class="stat-label">Mouse Tracks</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">2,048 bp</div>
+                <div class="stat-label">해상도(Resolution)</div>
+            </div>
+        </div>
+
+        <div class="concept-card">
+            <h4>TAD (Topologically Associating Domain)</h4>
+            <p>TAD는 게놈이 구조적으로 구획화된 영역으로, TAD 내부의 DNA 접촉 빈도가 TAD 경계를 넘는 접촉 빈도보다 훨씬 높습니다. TAD 경계는 주로 CTCF-RAD21(cohesin) 복합체에 의해 형성됩니다.</p>
+            <ul>
+                <li><strong>TAD 내부:</strong> 인핸서-프로모터 상호작용 촉진</li>
+                <li><strong>TAD 경계:</strong> 인접 TAD 간 절연(insulation)</li>
+                <li><strong>경계 파괴:</strong> 비정상적 유전자 활성화 (질환 관련)</li>
+            </ul>
+        </div>
+
+        <div class="img-container">
+            <img src="../results/visualization_tour/07_contact_maps.png" alt="Contact maps">
+            <div class="img-caption">Contact Map 시각화: 대각선 블록 패턴이 TAD를 나타내며, 경계에서 접촉 빈도가 급감합니다.</div>
+        </div>
+
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <div class="code-block"><span class="cmt"># CONTACT_MAPS 예측 (2048bp 해상도)</span>
+output = client.<span class="fn">predict_interval</span>(
+    interval,
+    <span class="param">output_types</span>=[<span class="str">'CONTACT_MAPS'</span>]
+)
+
+<span class="cmt"># 결과: 2D 행렬 형태의 접촉 빈도</span>
+<span class="cmt"># 대각선: 인접 영역 (높은 접촉), 멀어질수록 감소</span>
+<span class="cmt"># TAD: 대각선 근처의 삼각형 블록 패턴</span></div>
+        </div>
+
+        <div class="quiz" id="quiz8">
+            <h3>Module 8 Quiz</h3>
+            <div class="quiz-question">
+                <p>Q1. CONTACT_MAPS의 해상도는?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q8_1" value="a"> 128 bp</label>
+                    <label><input type="radio" name="q8_1" value="b"> 2,048 bp</label>
+                    <label><input type="radio" name="q8_1" value="c"> 10,000 bp</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>Q2. TAD 경계를 형성하는 핵심 단백질 복합체는?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q8_2" value="a"> RNA Polymerase II</label>
+                    <label><input type="radio" name="q8_2" value="b"> CTCF-cohesin (RAD21)</label>
+                    <label><input type="radio" name="q8_2" value="c"> Polycomb complex</label>
+                </div>
+            </div>
+            <button class="quiz-submit" onclick="checkQuiz(8, {q8_1:'b', q8_2:'b'})">정답 확인</button>
+            <div class="quiz-score" id="quizScore8"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== MODULE 9 ==================== -->
+<div class="module" id="module9">
+    <div class="module-header" onclick="toggleModule(9)">
+        <div class="module-number" id="moduleNum9">9</div>
+        <div class="module-title">
+            <h2>Nascent Transcription (PROCAP)</h2>
+            <div class="subtitle">초기 전사와 RNA Polymerase II 일시 정지</div>
+        </div>
+        <div class="module-toggle" id="moduleToggle9">&#9660;</div>
+    </div>
+    <div class="module-body" id="moduleBody9">
+        <div class="objectives">
+            <h3>학습 목표</h3>
+            <ul>
+                <li>PRO-cap 기술의 원리와 CAGE와의 차이를 이해한다</li>
+                <li>RNA Pol II 일시 정지(pausing)의 생물학적 의미를 설명할 수 있다</li>
+                <li>PROCAP이 Human 전용인 이유를 이해한다</li>
+            </ul>
+        </div>
+
+        <h3>PROCAP이란?</h3>
+        <p>PROCAP(PRO-cap)은 <strong>초기 전사(nascent transcription)</strong>를 측정하는 기술로, RNA Polymerase II가 전사를 시작한 직후 일시 정지(pausing)하는 위치를 매핑합니다. CAGE가 성숙한 mRNA의 5' end를 측정하는 것과 달리, PROCAP은 아직 처리되지 않은 초기 RNA를 포착합니다.</p>
+
+        <div class="stat-grid">
+            <div class="stat-item">
+                <div class="stat-value">12</div>
+                <div class="stat-label">Human Tracks</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">6</div>
+                <div class="stat-label">Cell Lines</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">-</div>
+                <div class="stat-label">Mouse (미지원)</div>
+            </div>
+        </div>
+
+        <div class="concept-card">
+            <h4>RNA Pol II Pausing</h4>
+            <p>RNA Pol II는 전사 시작 후 +20~+60 bp 위치에서 일시 정지합니다. 이 pausing은:</p>
+            <ul>
+                <li>유전자 활성화에 대한 <strong>빠른 반응</strong>을 가능하게 합니다</li>
+                <li>전사 속도의 <strong>조절점(checkpoint)</strong>으로 작용합니다</li>
+                <li>프로모터 구조 유지와 크로마틴 상태에 영향을 줍니다</li>
+            </ul>
+        </div>
+
+        <div class="concept-card">
+            <h4>CAGE vs PROCAP 비교</h4>
+            <div class="table-wrapper">
+                <table>
+                    <tr><th>특성</th><th>CAGE</th><th>PROCAP</th></tr>
+                    <tr><td>측정 대상</td><td>성숙 mRNA 5' cap</td><td>초기 RNA (nascent)</td></tr>
+                    <tr><td>포착 시점</td><td>전사 완료 후</td><td>전사 시작 직후</td></tr>
+                    <tr><td>주요 정보</td><td>안정적 TSS 활성</td><td>Pol II pausing 위치</td></tr>
+                    <tr><td>Human Tracks</td><td>546</td><td>12</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="img-container">
+            <img src="../results/procap_visualization/procap.png" alt="PROCAP visualization">
+            <div class="img-caption">PROCAP 시각화: 6개 세포주에서의 초기 전사 프로파일. TSS 근처에서 뾰족한 피크가 관찰됩니다.</div>
+        </div>
+
+        <div class="info-box warning">
+            <strong>Human 전용</strong>
+            PROCAP 데이터는 현재 Human 게놈에서만 사용 가능합니다. Mouse에서는 이 OutputType이 지원되지 않습니다.
+        </div>
+
+        <div class="quiz" id="quiz9">
+            <h3>Module 9 Quiz</h3>
+            <div class="quiz-question">
+                <p>Q1. PROCAP이 측정하는 것은?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q9_1" value="a"> 성숙 mRNA의 발현량</label>
+                    <label><input type="radio" name="q9_1" value="b"> RNA Pol II의 초기 전사 및 일시 정지 위치</label>
+                    <label><input type="radio" name="q9_1" value="c"> 히스톤 변형 패턴</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>Q2. PROCAP 트랙에 포함된 세포주 수는?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q9_2" value="a"> 3개</label>
+                    <label><input type="radio" name="q9_2" value="b"> 6개</label>
+                    <label><input type="radio" name="q9_2" value="c"> 12개</label>
+                </div>
+            </div>
+            <button class="quiz-submit" onclick="checkQuiz(9, {q9_1:'b', q9_2:'b'})">정답 확인</button>
+            <div class="quiz-score" id="quizScore9"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== MODULE 10 ==================== -->
+<div class="module" id="module10">
+    <div class="module-header" onclick="toggleModule(10)">
+        <div class="module-number" id="moduleNum10">10</div>
+        <div class="module-title">
+            <h2>Variant Effect Prediction</h2>
+            <div class="subtitle">변이 효과 예측: Single, Batch, ISM</div>
+        </div>
+        <div class="module-toggle" id="moduleToggle10">&#9660;</div>
+    </div>
+    <div class="module-body" id="moduleBody10">
+        <div class="objectives">
+            <h3>학습 목표</h3>
+            <ul>
+                <li>predict_variant() API의 올바른 사용법을 익힌다</li>
+                <li>GeneMaskLFCScorer, CenterMaskScorer, SpliceSitesScorer의 차이를 이해한다</li>
+                <li>Batch scoring과 ISM의 활용 시나리오를 설명할 수 있다</li>
+            </ul>
+        </div>
+
+        <h3>변이 효과 예측 개요</h3>
+        <p>AlphaGenome은 DNA 변이(SNV, InDel)가 다양한 게노믹 특성에 미치는 효과를 정량적으로 예측합니다. <strong>RECOMMENDED_VARIANT_SCORERS</strong>에 19가지 스코어러가 포함되어 있습니다.</p>
+
+        <div class="tabs">
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="switchTab('variant', 'single')">Single Variant</button>
+                <button class="tab-btn" onclick="switchTab('variant', 'batch')">Batch Scoring</button>
+                <button class="tab-btn" onclick="switchTab('variant', 'ism')">ISM</button>
+            </div>
+
+            <div class="tab-content active" id="variant-single">
+                <h4>단일 변이 예측</h4>
+                <p><code>predict_variant()</code>를 사용하여 개별 변이의 효과를 예측합니다. 결과는 VariantOutput 객체로 반환됩니다.</p>
+
+                <div class="code-wrapper">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <div class="code-block"><span class="cmt"># 단일 변이 효과 예측</span>
+variant = genome.<span class="cls">Variant</span>(
+    <span class="param">chromosome</span>=<span class="str">'chr22'</span>,
+    <span class="param">position</span>=<span class="num">36201698</span>,
+    <span class="param">reference_bases</span>=<span class="str">'A'</span>,
+    <span class="param">alternate_bases</span>=<span class="str">'C'</span>
+)
+
+<span class="cmt"># 변이 효과 예측 (모든 OutputType)</span>
+variant_output = client.<span class="fn">predict_variant</span>(variant)
+
+<span class="cmt"># ISM score (Quick Start: 192 variants for 64bp window)</span>
+<span class="cmt"># VariantOutput에서 각 OutputType별 효과 크기 확인</span></div>
+                </div>
+
+                <div class="img-container">
+                    <img src="../results/quick_start/variant_effect.png" alt="Variant effect">
+                    <div class="img-caption">변이 효과 예측 결과: 각 OutputType에 대한 효과 크기가 시각화됩니다.</div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="variant-batch">
+                <h4>Batch Variant Scoring</h4>
+                <p>복수의 변이를 한 번에 스코어링하여 대규모 분석을 수행합니다.</p>
+
+                <div class="stat-grid">
+                    <div class="stat-item">
+                        <div class="stat-value">121,550</div>
+                        <div class="stat-label">Total Rows</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Variants Scored</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">687</div>
+                        <div class="stat-label">Ontology Curies</div>
+                    </div>
+                </div>
+
+                <div class="code-wrapper">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <div class="code-block"><span class="cmt"># Batch variant scoring</span>
+variants = [
+    genome.<span class="cls">Variant</span>(<span class="param">chromosome</span>=<span class="str">'chr22'</span>, <span class="param">position</span>=<span class="num">36201698</span>,
+              <span class="param">reference_bases</span>=<span class="str">'A'</span>, <span class="param">alternate_bases</span>=<span class="str">'C'</span>),
+    <span class="cmt"># ... 추가 변이들</span>
+]
+
+<span class="cmt"># RECOMMENDED_VARIANT_SCORERS (19 scorers) 사용</span>
+<span class="cmt"># 11 base scorers + POLYADENYLATION + 7 _ACTIVE variants</span>
+scores = client.<span class="fn">score_variants</span>(
+    variants,
+    <span class="param">scorers</span>=alphagenome.<span class="cls">RECOMMENDED_VARIANT_SCORERS</span>
+)
+
+<span class="cmt"># 결과: 121,550 rows across 687 ontology curies</span></div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="variant-ism">
+                <h4>In Silico Mutagenesis (ISM)</h4>
+                <p>특정 영역의 모든 가능한 단일 염기 변이를 체계적으로 평가합니다.</p>
+
+                <div class="two-col">
+                    <div class="concept-card">
+                        <h4>64bp Window</h4>
+                        <ul>
+                            <li>변이 수: <strong>192</strong> (64 x 3)</li>
+                            <li>Quick Start 예제에서 사용</li>
+                            <li>빠른 탐색에 적합</li>
+                        </ul>
+                    </div>
+                    <div class="concept-card">
+                        <h4>256bp Window</h4>
+                        <ul>
+                            <li>변이 수: <strong>768</strong> (256 x 3)</li>
+                            <li>평균 효과: <strong>-0.0072</strong></li>
+                            <li>더 넓은 영역 분석</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Scorer 상세</h3>
+        <div class="table-wrapper">
+            <table>
+                <tr><th>Scorer</th><th>적용 OutputType</th><th>방법</th></tr>
+                <tr><td><strong>GeneMaskLFCScorer</strong></td><td>RNA_SEQ, CAGE, PROCAP</td><td>유전자 단위 log fold change</td></tr>
+                <tr><td><strong>CenterMaskScorer</strong></td><td>DNASE, ATAC, CHIP_HISTONE, CHIP_TF</td><td>변이 중심 영역의 효과 측정</td></tr>
+                <tr><td><strong>SpliceSitesScorer</strong></td><td>SPLICE_SITES</td><td>스플라이싱 확률 변화 측정</td></tr>
+            </table>
+        </div>
+
+        <div class="info-box important">
+            <strong>RECOMMENDED_VARIANT_SCORERS: 19 keys</strong>
+            11개 기본 scorer + POLYADENYLATION + 7개 _ACTIVE 변형 = 총 19가지. 다양한 관점에서 변이 효과를 종합적으로 평가합니다.
+        </div>
+
+        <div class="quiz" id="quiz10">
+            <h3>Module 10 Quiz</h3>
+            <div class="quiz-question">
+                <p>Q1. GeneMaskLFCScorer가 적용되는 OutputType은?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q10_1" value="a"> DNASE, ATAC, CHIP_HISTONE</label>
+                    <label><input type="radio" name="q10_1" value="b"> RNA_SEQ, CAGE, PROCAP</label>
+                    <label><input type="radio" name="q10_1" value="c"> SPLICE_SITES, SPLICE_JUNCTIONS</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>Q2. ISM 64bp 윈도우에서 생성되는 변이 수는?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q10_2" value="a"> 64</label>
+                    <label><input type="radio" name="q10_2" value="b"> 192</label>
+                    <label><input type="radio" name="q10_2" value="c"> 768</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>Q3. RECOMMENDED_VARIANT_SCORERS에 포함된 scorer 수는?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q10_3" value="a"> 11</label>
+                    <label><input type="radio" name="q10_3" value="b"> 15</label>
+                    <label><input type="radio" name="q10_3" value="c"> 19</label>
+                </div>
+            </div>
+            <button class="quiz-submit" onclick="checkQuiz(10, {q10_1:'b', q10_2:'b', q10_3:'c'})">정답 확인</button>
+            <div class="quiz-score" id="quizScore10"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== MODULE 11 ==================== -->
+<div class="module" id="module11">
+    <div class="module-header" onclick="toggleModule(11)">
+        <div class="module-number" id="moduleNum11">11</div>
+        <div class="module-title">
+            <h2>Advanced Workflows</h2>
+            <div class="subtitle">TAL1 분석, 온톨로지 탐색, CLI 기반 워크플로우</div>
+        </div>
+        <div class="module-toggle" id="moduleToggle11">&#9660;</div>
+    </div>
+    <div class="module-body" id="moduleBody11">
+        <div class="objectives">
+            <h3>학습 목표</h3>
+            <ul>
+                <li>TAL1 T-ALL 분석 워크플로우를 설계할 수 있다</li>
+                <li>조직 온톨로지를 활용한 트랙 필터링을 수행할 수 있다</li>
+                <li>CLI 기반 대규모 분석의 장점을 이해한다</li>
+            </ul>
+        </div>
+
+        <h3>TAL1 T-ALL 분석 워크플로우</h3>
+        <p>TAL1은 T세포 급성 림프구성 백혈병(T-ALL)에서 중요한 종양유전자입니다. 이 워크플로우에서는 종양 유발 변이와 배경 변이를 비교 분석합니다.</p>
+
+        <div class="stat-grid">
+            <div class="stat-item">
+                <div class="stat-value">128</div>
+                <div class="stat-label">Total Variants</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">32</div>
+                <div class="stat-label">Oncogenic Variants</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">96</div>
+                <div class="stat-label">Background Variants</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">+0.334</div>
+                <div class="stat-label">Mean Oncogenic Score</div>
+            </div>
+        </div>
+
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <div class="code-block"><span class="cmt"># TAL1 T-ALL 분석 워크플로우</span>
+<span class="cmt"># 1. 종양 유발 변이 (32개) vs 배경 변이 (96개) 비교</span>
+<span class="cmt"># 2. 128개 변이에 대해 variant effect scoring 수행</span>
+<span class="cmt"># 3. Mean oncogenic score: +0.334</span>
+
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+<span class="cmt"># 변이 목록 로드</span>
+oncogenic_variants = load_variants(<span class="str">"oncogenic"</span>, n=<span class="num">32</span>)
+background_variants = load_variants(<span class="str">"background"</span>, n=<span class="num">96</span>)
+all_variants = oncogenic_variants + background_variants  <span class="cmt"># 128 total</span>
+
+<span class="cmt"># Batch scoring</span>
+scores = client.<span class="fn">score_variants</span>(
+    all_variants,
+    <span class="param">scorers</span>=alphagenome.<span class="cls">RECOMMENDED_VARIANT_SCORERS</span>
+)
+
+<span class="cmt"># 종양 유발 변이가 통계적으로 유의하게 높은 점수</span></div>
+        </div>
+
+        <h3>조직 온톨로지 탐색</h3>
+        <p>AlphaGenome 트랙은 표준화된 온톨로지로 주석이 달려 있어, 특정 세포 유형이나 조직에 해당하는 트랙을 정확히 필터링할 수 있습니다.</p>
+
+        <div class="table-wrapper">
+            <table>
+                <tr><th>온톨로지</th><th>항목 수</th><th>설명</th></tr>
+                <tr><td>CL (Cell Ontology)</td><td>1,394</td><td>세포 유형</td></tr>
+                <tr><td>CLO (Cell Line Ontology)</td><td>65</td><td>세포주</td></tr>
+                <tr><td>EFO (Experimental Factor)</td><td>2,402</td><td>실험 조건/세포주</td></tr>
+                <tr><td>NTR (New Term Request)</td><td>93</td><td>신규 용어</td></tr>
+                <tr><td>UBERON</td><td>1,605</td><td>해부학적 구조/조직</td></tr>
+                <tr><td colspan="3" style="font-weight:600;background:var(--primary-light)">총 Human Terms: 5,559</td></tr>
+            </table>
+        </div>
+
+        <h3>CLI 기반 분석</h3>
+        <p>대규모 변이 분석에는 CLI(Command Line Interface) 기반 워크플로우가 효율적입니다.</p>
+
+        <div class="stat-grid">
+            <div class="stat-item">
+                <div class="stat-value">38,357</div>
+                <div class="stat-label">CLI Output Rows</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">19</div>
+                <div class="stat-label">Scorers Used</div>
+            </div>
+        </div>
+
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <div class="code-block"><span class="cmt"># CLI 기반 변이 스코어링</span>
+<span class="cmt"># 출력: 38,357 rows x 19 scorers</span>
+<span class="cmt">$ alphagenome score-variants \</span>
+<span class="cmt">    --input variants.vcf \</span>
+<span class="cmt">    --output scores.tsv \</span>
+<span class="cmt">    --scorers recommended</span>
+
+<span class="cmt"># Python에서 결과 분석</span>
+df = pd.<span class="fn">read_csv</span>(<span class="str">"scores.tsv"</span>, <span class="param">sep</span>=<span class="str">"\t"</span>)
+print(f<span class="str">"Rows: {len(df)}"</span>)  <span class="cmt"># 38,357</span></div>
+        </div>
+
+        <h3>Visualization Tour 요약</h3>
+        <div class="concept-card">
+            <h4>7가지 시각화 (chr22 APOL4 영역)</h4>
+            <ul>
+                <li><strong>01.</strong> RNA_SEQ - 유전자 발현 프로파일</li>
+                <li><strong>02.</strong> CAGE - TSS 활성</li>
+                <li><strong>03.</strong> DNASE - 크로마틴 접근성</li>
+                <li><strong>04.</strong> ATAC - 크로마틴 접근성</li>
+                <li><strong>05.</strong> CHIP_HISTONE - 히스톤 변형</li>
+                <li><strong>06.</strong> SPLICE - 스플라이싱 패턴</li>
+                <li><strong>07.</strong> CONTACT_MAPS - 3D 구조</li>
+            </ul>
+        </div>
+
+        <div class="quiz" id="quiz11">
+            <h3>Module 11 Quiz</h3>
+            <div class="quiz-question">
+                <p>Q1. TAL1 분석에서 총 변이 수와 종양 유발 변이 수는?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q11_1" value="a"> 64개 총, 16개 종양</label>
+                    <label><input type="radio" name="q11_1" value="b"> 128개 총, 32개 종양</label>
+                    <label><input type="radio" name="q11_1" value="c"> 256개 총, 64개 종양</label>
+                </div>
+            </div>
+            <div class="quiz-question">
+                <p>Q2. Human 트랙의 총 온톨로지 term 수는?</p>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q11_2" value="a"> 3,000</label>
+                    <label><input type="radio" name="q11_2" value="b"> 5,559</label>
+                    <label><input type="radio" name="q11_2" value="c"> 10,000</label>
+                </div>
+            </div>
+            <button class="quiz-submit" onclick="checkQuiz(11, {q11_1:'b', q11_2:'b'})">정답 확인</button>
+            <div class="quiz-score" id="quizScore11"></div>
+        </div>
+    </div>
+</div>
+
+</div><!-- end container -->
+
+<div class="footer">
+    <p>AlphaGenome Interactive Learning Report</p>
+    <p>Generated with verified experimental data &middot; 11 Modules &middot; Google DeepMind AlphaGenome API</p>
+</div>
+
+<script>
+// State
+const totalModules = 11;
+const completedModules = new Set();
+
+// Toggle Module
+function toggleModule(n) {
+    const body = document.getElementById('moduleBody' + n);
+    const toggle = document.getElementById('moduleToggle' + n);
+    const header = body.previousElementSibling;
+    const isVisible = body.classList.contains('visible');
+
+    if (isVisible) {
+        body.classList.remove('visible');
+        toggle.classList.remove('open');
+        header.classList.remove('active');
+    } else {
+        body.classList.add('visible');
+        toggle.classList.add('open');
+        header.classList.add('active');
+    }
+}
+
+// Switch Tabs
+function switchTab(group, tab) {
+    const parent = event.target.closest('.tabs');
+    parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    parent.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById(group + '-' + tab).classList.add('active');
+}
+
+// Check Quiz
+function checkQuiz(moduleNum, answers) {
+    let correct = 0;
+    let total = Object.keys(answers).length;
+
+    for (const [name, correctVal] of Object.entries(answers)) {
+        const selected = document.querySelector('input[name="' + name + '"]:checked');
+        if (selected && selected.value === correctVal) {
+            correct++;
+        }
+    }
+
+    const scoreEl = document.getElementById('quizScore' + moduleNum);
+    if (correct === total) {
+        scoreEl.innerHTML = '<span style="color:var(--secondary)">' + correct + '/' + total + ' correct! Module ' + moduleNum + ' completed.</span>';
+        completedModules.add(moduleNum);
+        document.getElementById('moduleNum' + moduleNum).classList.add('completed');
+        document.getElementById('moduleNum' + moduleNum).innerHTML = '&#10003;';
+    } else {
+        scoreEl.innerHTML = '<span style="color:var(--accent)">' + correct + '/' + total + ' correct. Try again!</span>';
+    }
+    updateProgress();
+}
+
+// Update Progress
+function updateProgress() {
+    const pct = Math.round((completedModules.size / totalModules) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressText').textContent = completedModules.size + '/' + totalModules;
+}
+
+// Copy Code
+function copyCode(btn) {
+    const code = btn.nextElementSibling.textContent;
+    navigator.clipboard.writeText(code).then(function() {
+        btn.textContent = 'Copied!';
+        setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+    });
+}
+</script>
+
+</body>
+</html>
