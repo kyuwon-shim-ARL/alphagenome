@@ -1,0 +1,13 @@
+[project]
+name = "alphagenome-workspace"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "alphagenome>=0.1.0",
+    "ipywidgets>=8.1.8",
+    "jupyterlab>=4.5.3",
+    "matplotlib>=3.10.8",
+    "python-dotenv>=1.2.1",
+]
