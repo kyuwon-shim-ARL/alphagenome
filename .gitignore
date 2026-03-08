@@ -17,3 +17,11 @@ results/**/*.csv
 
 # OMC
 .omc/
+.omc-config.sh
+
+# Experiment Workflow outputs (keep MANIFEST)
+outputs/**/*.csv
+outputs/**/*.png
+outputs/**/*.pkl
+outputs/**/*.html
+!outputs/MANIFEST.yaml

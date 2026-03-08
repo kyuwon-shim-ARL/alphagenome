@@ -1,7 +1,7 @@
 [project]
 name = "alphagenome-workspace"
 version = "0.1.0"
-description = "Add your description here"
+description = "AlphaGenome tutorial execution, variant scoring analysis, and comprehensive reporting"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
