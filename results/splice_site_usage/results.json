@@ -1,0 +1,15 @@
+{
+  "interval": "chr22:35677410-36725986:.",
+  "gene": "APOL4",
+  "ontology_terms": [
+    "UBERON:0001157",
+    "UBERON:0001159"
+  ],
+  "outputs": {
+    "splice_site_usage": {
+      "file": "/home/kyuwon/projects/alphagenome/results/splice_site_usage/splice_site_usage.png",
+      "status": "success"
+    }
+  },
+  "status": "success"
+}
