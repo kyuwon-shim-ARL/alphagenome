@@ -140,11 +140,11 @@ for track in splice_site_usage.tracks:
 ```
 
 **검증 결과**:
-- `results/splice_site_usage/metadata.csv`: 734 rows(1 row per track)
-- `results/splice_site_usage/splice_site_usage_summary.txt`: statistics
-- **Standalone visualization script**: `scripts/visualization/plot_splice_site_usage_standalone.py`
-  - HepG2(EFO:0001187) cell line 시각화
-  - Output: `results/splice_site_usage/splice_site_usage_HepG2_chr22_38000000-38060000.png`
+- `results/splice_site_usage/results.json`: 실행 메타데이터 (status: success, gene: APOL4)
+- `results/splice_site_usage/splice_site_usage.png`: APOL4 유전자 colon 조직 시각화
+- **Standalone visualization script**: `scripts/run_splice_site_usage.py` (5.7 KB)
+  - APOL4 gene region, Colon Transverse/Sigmoid ontology terms
+  - Output: `results/splice_site_usage/splice_site_usage.png`
 
 | Item | Value |
 |------|-------|

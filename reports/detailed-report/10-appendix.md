@@ -2,7 +2,7 @@
 
 ## 1. 한 줄 요약
 
-> AlphaGenome API는 7개 핵심 메서드, gRPC 기반 client-server 아키텍처, 10개 results 디렉토리, 12개 스크립트로 구성되며, ~156회 API 호출을 ~8분 내에 완료했다.
+> AlphaGenome API는 7개 핵심 메서드, gRPC 기반 client-server 아키텍처, 11개 results 디렉토리, 12개 스크립트로 구성되며, ~157회 API 호출을 ~8분 내에 완료했다.
 
 ---
 
@@ -475,12 +475,16 @@ results/
 │   ├── procap.png                   (205 KB)
 │   └── results.json                 (932 B)
 │
-└── chip_tf_analysis/                (5 files)
-    ├── chip_tf_k562_ctcf.png        (70 KB)
-    ├── chip_tf_hepg2_ctcf.png       (94 KB)
-    ├── chip_tf_ctcf_rad21_coloc.png (120 KB)
-    ├── chip_tf_multi_tf.png         (182 KB)
-    └── results.json                 (1.2 KB)
+├── chip_tf_analysis/                (5 files)
+│   ├── chip_tf_k562_ctcf.png        (70 KB)
+│   ├── chip_tf_hepg2_ctcf.png       (94 KB)
+│   ├── chip_tf_ctcf_rad21_coloc.png (120 KB)
+│   ├── chip_tf_multi_tf.png         (182 KB)
+│   └── results.json                 (1.2 KB)
+│
+└── splice_site_usage/               (2 files)
+    ├── splice_site_usage.png        (141 KB)
+    └── results.json                 (335 B)
 ```
 
 ### C.2 Scripts
@@ -494,7 +498,7 @@ scripts/
 ├── run_ism_256bp.py                 (8.7 KB)
 ├── run_procap_visualization.py      (6.6 KB)
 ├── run_chip_tf_analysis.py          (12 KB)
-├── run_splice_site_usage.py         (new)
+├── run_splice_site_usage.py         (5.7 KB)
 ├── tissue_ontology_mapping.py       (9.2 KB)
 ├── generate_batch_summary.py        (3.0 KB)
 ├── analyze_batch_results.py         (2.5 KB)
@@ -511,14 +515,14 @@ tutorials/
 ├── batch_variant_scoring.ipynb      (466 KB)
 ├── example_analysis_workflow.ipynb   (524 KB)
 ├── tissue_ontology_mapping.ipynb    (2.2 MB)
-└── variant_scoring_ui.ipynb         (26 MB)    Colab 의존적, CLI 대체
+└── variant_scoring_ui.ipynb         (18 KB)    Colab 의존적, CLI 대체 (출력 제거됨)
 ```
 
 ### C.4 Summary Statistics
 
 | 카테고리 | 수량 |
 |---------|------|
-| Results 디렉토리 | 10 |
+| Results 디렉토리 | 11 |
 | 총 결과 파일 | ~50+ |
 | Scripts | 12 |
 | Tutorials | 7 |

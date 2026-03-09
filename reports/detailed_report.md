@@ -1,7 +1,7 @@
 # AlphaGenome 튜토리얼 실행 상세 보고서
 
 **작성일**: 2026년 2월 6일
-**실행 완료**: 7개 핵심 튜토리얼 + 4개 추가 스크립트
+**실행 완료**: 7개 핵심 튜토리얼 + 5개 추가 스크립트
 **OutputType 커버리지**: 11가지 전체
 **핵심 수치**: 121,550 변이 점수, 38,357 CLI 점수, 768 ISM 변이, 7 시각화 PNG, 128 분석 변이
 
@@ -22,7 +22,7 @@ AlphaGenome의 핵심 기능은 다음과 같다:
 
 ### 1.2 실행 범위
 
-총 **7개 튜토리얼**과 **4개 추가 분석 스크립트**를 실행했다:
+총 **7개 튜토리얼**과 **5개 추가 분석 스크립트**를 실행했다:
 
 | # | 항목 | 유형 | 소스 | 상태 |
 |---|------|------|------|------|
@@ -36,7 +36,8 @@ AlphaGenome의 핵심 기능은 다음과 같다:
 | 8 | ISM 256bp Analysis | Script | `scripts/run_ism_256bp.py` | 완료 |
 | 9 | PROCAP Visualization | Script | `scripts/run_procap_visualization.py` | 완료 |
 | 10 | ChIP-TF Analysis | Script | `scripts/run_chip_tf_analysis.py` | 완료 |
-| 11 | Batch Results Analysis | Script | `scripts/analyze_batch_results.py` | 완료 |
+| 11 | SPLICE_SITE_USAGE Visualization | Script | `scripts/run_splice_site_usage.py` | 완료 |
+| 12 | Batch Results Analysis | Script | `scripts/analyze_batch_results.py` | 완료 |
 
 ### 1.3 핵심 수치 요약
 

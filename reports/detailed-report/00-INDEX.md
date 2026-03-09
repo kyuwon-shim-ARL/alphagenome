@@ -1,7 +1,7 @@
 # AlphaGenome 튜토리얼 실행 상세 보고서
 
 **작성일**: 2026년 2월 6일 | **모듈화**: 2026년 2월 10일
-**실행 완료**: 7개 핵심 튜토리얼 + 5개 추가 스크립트
+**실행 완료**: 7개 핵심 튜토리얼 + 5개 추가 스크립트 (총 12개)
 **OutputType 커버리지**: 11가지 전체 + POLYADENYLATION scorer
 
 ---
@@ -57,7 +57,7 @@ graph TD
 | **07** | [Variant Scoring](07-variant-scoring.md) | 변이 효과를 어떻게 정량화하는가? | Batch 121,550행, CLI 38,357행 | 19 RECOMMENDED_VARIANT_SCORERS |
 | **08** | [ISM Analysis](08-ism-analysis.md) | 연속 구간 전체를 어떻게 스캔하는가? | 192 (64bp) + 768 (256bp) variants | SeqLogo heatmap |
 | **09** | [T-ALL Workflow](09-tall-workflow.md) | 실제 질병 연구에 어떻게 적용되는가? | 32 oncogenic (+0.334) vs 96 background (-0.020) | TAL1 locus |
-| **10** | [Appendix](10-appendix.md) | API 상세 참조 | 7 메서드 시그니처, 10 results dirs | Architecture, File Manifest |
+| **10** | [Appendix](10-appendix.md) | API 상세 참조 | 7 메서드 시그니처, 11 results dirs | Architecture, File Manifest |
 
 ---
 
@@ -94,7 +94,7 @@ graph TD
 | Human ontology terms | 5,559 |
 | 시각화 PNG | ~20+ |
 | Scripts | 12 |
-| Results 디렉토리 | 10 |
+| Results 디렉토리 | 11 |
 
 ---
 
